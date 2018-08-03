@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ambow.dao.BorrowDao">
+	<insert id="newBorrow" parameterType="Borrow">
+		insert into Borrow(borrow_id,booktype_id,book_id,reader_id,emp_id,isback,borrow_data,back_data,isdamaged,can_borrow_data,exceed_data,price)
+		values(#{borrowId},#{booktypeId},#{bookId},#{readerId},#{empId},#{isback},#{borrowData},#{backData},#{isdamaged},#{canBorrowData},#{exceedData},#{price});
+	</insert>
+	
+	<update id="updateBorrow">
+		update Borrow
+		<set>
+			<if test="booktypeId!=null">booktype_id = #{booktypeId},</if>
+			<if test="bookId!=null">book_id = #{bookId},</if>
+			<if test="readerId!=null">reader_id = #{readerId},</if>
+			<if test="empId!=null">emp_id = #{empId},</if>
+			<if test="isback!=null">isback = #{isback},</if>
+			<if test="borrowData!=null">borrow_data = #{borrowData},</if>
+			<if test="backData!=null">back_data = #{backData},</if>
+			<if test="isdamaged!=null">isdamaged = #{isdamaged},</if>
+			<if test="canBorrowData!=null">can_borrow_data = #{canBorrowData},</if>
+			<if test="exceedData!=null">exceed_data = #{exceedData},</if>
+			<if test="price!=null">price = #{price},</if>
+		</set>
+		where borrow_id = #{borrowId}
+	</update>
+	
+	<delete id="deleteBorrowById">
+		delete from Borrow where borrow_id = #{borrowId}
+	</delete>
+	
+	<select id="getBorrowById" parameterType="int" resultType="Borrow">
+		select * from Borrow where borrow_id = #{borrowId};
+	</select>
+	<select id="getAllBorrow" resultType="Borrow">
+		select * from Borrow 
+	</select>
+</mapper>

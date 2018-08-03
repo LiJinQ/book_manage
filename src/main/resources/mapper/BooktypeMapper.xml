@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ambow.dao.BooktypeDao">
+	<insert id="newBooktype" parameterType="Booktype">
+		insert into Booktype(book_type_id,book_type_name)
+		values(#{bookTypeId},#{bookTypeName});
+	</insert>
+	
+	<update id="updateBooktype">
+		update Booktype
+		<set>
+			<if test="bookTypeName!=null">book_type_name = #{bookTypeName},</if>
+		</set>
+		where book_type_id = #{bookTypeId}
+	</update>
+	
+	<delete id="deleteBooktypeById">
+		delete from Booktype where book_type_id = #{bookTypeId}
+	</delete>
+	
+	<select id="getBooktypeById" parameterType="int" resultType="Booktype">
+		select * from Booktype where book_type_id = #{bookTypeId};
+	</select>
+	<select id="getAllBooktype" resultType="Booktype">
+		select * from Booktype 
+	</select>
+</mapper>

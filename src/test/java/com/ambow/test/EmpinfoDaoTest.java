@@ -40,4 +40,10 @@ public class EmpinfoDaoTest {
 	public void testSelectAll() {
 		System.out.println(ed.getAllEmpinfo());
 	}
+	
+	@Test
+	public void testUpdate() {
+		Empinfo empinfo = new Empinfo(1, "suadmin1", "ljq", "男", null, "15141111111", "苏州市昆山市安博产业园", "无", 1, "123456");
+		ed.updateEmpInfo(empinfo);
+	}
 }

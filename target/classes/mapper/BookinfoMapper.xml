@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ambow.dao.BookinfoDao">
+	<insert id="newBookinfo" parameterType="Bookinfo">
+		insert into Bookinfo(book_id,book_type_id,book_name,writer,translator,publish_data,publish_house,price,isborrow,borrow_data,borrow_price,book_num)
+		values(#{bookId},#{bookTypeId},#{bookName},#{writer},#{translator},#{publishData},#{publishHouse},#{price},#{isborrow},#{borrowData},#{borrowPrice},#{bookNum});
+	</insert>
+	
+	<update id="updateBookinfo">
+		update Bookinfo
+		<set>
+			<if test="bookTypeId!=null">book_type_id = #{bookTypeId},</if>
+			<if test="bookName!=null">book_name = #{bookName},</if>
+			<if test="writer!=null">writer = #{writer},</if>
+			<if test="translator!=null">translator = #{translator},</if>
+			<if test="publishData!=null">publish_data = #{publishData},</if>
+			<if test="publishHouse!=null">publish_house = #{publishHouse},</if>
+			<if test="price!=null">price = #{price},</if>
+			<if test="isborrow!=null">isborrow = #{isborrow},</if>
+			<if test="borrowData!=null">borrowData = #{borrowData},</if>
+			<if test="borrowPrice!=null">borrow_price = #{borrowPrice},</if>
+			<if test="bookNum!=null">book_num = #{bookNum},</if>
+		</set>
+		where book_id = #{bookId}
+	</update>
+	
+	<delete id="deleteBookinfoById">
+		delete from book_id where book_id = #{bookId}
+	</delete>
+	
+	<select id="getBookinfoById" parameterType="int" resultType="Bookinfo">
+		select * from Bookinfo where book_id = #{bookId};
+	</select>
+	<select id="getAllBookinfo" resultType="Bookinfo">
+		select * from Bookinfo 
+	</select>
+</mapper>

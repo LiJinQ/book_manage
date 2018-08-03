@@ -24,6 +24,8 @@ public class Bookinfo {
     private Date borrowData;
 
     private float borrowPrice;
+    
+    private int bookNum;
 
 	public Bookinfo() {
 		super();
@@ -31,7 +33,7 @@ public class Bookinfo {
 	}
 
 	public Bookinfo(int bookId, int bookTypeId, String bookName, String writer, String translator, Date publishData,
-			String publishHouse, float price, boolean isborrow, Date borrowData, float borrowPrice) {
+			String publishHouse, float price, boolean isborrow, Date borrowData, float borrowPrice, int bookNum) {
 		super();
 		this.bookId = bookId;
 		this.bookTypeId = bookTypeId;
@@ -44,6 +46,7 @@ public class Bookinfo {
 		this.isborrow = isborrow;
 		this.borrowData = borrowData;
 		this.borrowPrice = borrowPrice;
+		this.bookNum = bookNum;
 	}
 
 	@Override
@@ -51,7 +54,7 @@ public class Bookinfo {
 		return "Bookinfo [bookId=" + bookId + ", bookTypeId=" + bookTypeId + ", bookName=" + bookName + ", writer="
 				+ writer + ", translator=" + translator + ", publishData=" + publishData + ", publishHouse="
 				+ publishHouse + ", price=" + price + ", isborrow=" + isborrow + ", borrowData=" + borrowData
-				+ ", borrowPrice=" + borrowPrice + "]";
+				+ ", borrowPrice=" + borrowPrice + ", bookNum=" + bookNum + "]";
 	}
 
 	public int getBookId() {
@@ -141,6 +144,16 @@ public class Bookinfo {
 	public void setBorrowPrice(float borrowPrice) {
 		this.borrowPrice = borrowPrice;
 	}
+
+	public int getBookNum() {
+		return bookNum;
+	}
+
+	public void setBookNum(int bookNum) {
+		this.bookNum = bookNum;
+	}
+
+	
     
     
 }
