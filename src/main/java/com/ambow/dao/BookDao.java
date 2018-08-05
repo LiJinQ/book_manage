@@ -2,6 +2,8 @@ package com.ambow.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ambow.pojo.Book;
 
 public interface BookDao {
@@ -18,7 +20,7 @@ public interface BookDao {
 	 * @param name
 	 * @return
 	 */
-	public List<Book> getBookByTypeIdOrName(int typeId,String name);
+	public List<Book> getBookByTypeIdOrName(@Param("typeId")int typeId,String name);
 	
 	public Book getBookById(int id);
 	

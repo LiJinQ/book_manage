@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.BookDao">	
+	<insert id="newBook">
+		insert into book (id,number,type_id,name,author,translator,press,press_date,price,borrow_time,stock)
+		values 
+		(#{id},#{number},#{typeId},#{name},#{author},#{translator},#{press},#{pressDate},#{price},#{borrowTime},#{stock})
+	</insert>
+	<delete id="deleteBookById">
+		delete from book where id =#{id}
+	</delete>
+	<update id="updateBook">
+		update book 
+		<set>
+			<if test="number!=null">number=#{number},</if>
+			<if test="typeId!=null">type_id=#{typeId},</if>
+			<if test="name!=null">name=#{name},</if>
+			<if test="author!=null">author=#{author},</if>
+			<if test="translator!=null">translator=#{translator},</if>
+			<if test="press!=null">press=#{press},</if>
+			<if test="press_date!=null">pressDate=#{pressDate},</if>
+			<if test="price!=null">price=#{price},</if>
+			<if test="borrowTime!=null">borrow_time=#{borrowTime},</if>
+			<if test="stock!=null">stock=#{stock},</if>
+		</set>
+		where id =#{id}
+	</update>
+</mapper>
