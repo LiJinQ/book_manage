@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ambow.dao.PurchaseDao">
+
+	<select id="getAllPurchase" resultType="Purchase">
+		select * from purchase
+	</select>
+	
+	<select id="getPurchaseById" resultType="Purchase">
+		select * from purchase where purchase_no = #{id}
+	</select>
+	
+	<insert id="newPurchase" parameterType="Purchase">
+		insert into purchase  (purchase_no, purchase_id, book_id, purchase_reason, application_data,application_state, reader_tel,reader_address,remark) 
+		values 
+		(#{purchaseNo}, #{purchaseId}, #{bookId}, #{purchaseReason}, #{applicationData},#{applicationState},#{readerTel},#{readerAddress},#{remark});
+	</insert>
+		
+	<delete id="deletePurchase">
+		delete from purchase where purchase_no =#{id}
+	</delete>
+	
+	<update id="updatePurchase">
+		update purchase
+		<set>
+			<if test="purchaseId!=null">purchase_id=#{purchaseId},</if>
+			book_id = #{bookId},
+			<if test="purchaseReason!=null">purchase_reason=#{purchaseReason},</if>
+			<if test="applicationData!=null">application_data=#{applicationData},</if>
+			<if test="applicationState!=null">application_state=#{applicationState},</if>
+			<if test="readerTel!=null">reader_tel=#{readerTel},</if>
+			<if test="readerAddress!=null">reader_address=#{readerAddress},</if>
+			<if test="remark!=null">remark=#{remark},</if>
+		</set>
+		where purchase_no = #{purchaseNo}
+	</update>
+</mapper>

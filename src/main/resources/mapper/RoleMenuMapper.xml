@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.RoleMenuDao">
+	<select id="getAllRoleMenu" resultType="RoleMenu">
+		select * from role_menu
+	</select>
+	<select id="getRoleMenuById" resultType="RoleMenu">
+		select * from role_menu where role_menu_id=#{id}
+	</select>
+	
+	<insert id="newRoleMenu">
+		insert into role_menu (role_menu_id,role_id,menu_id,menu_no,menu_level,state)
+		values 
+		(#{roleMenuId},#{roleId},#{menuId},#{menuNo},#{menuLevel},#{state})
+	</insert>
+	<delete id="deleteRoleMenu">
+		delete from role_menu where role_menu_id =#{id}
+	</delete>
+	<update id="updateRoleMenu">
+		update role_menu 
+		<set>
+			<if test="roleId!=null">role_id=#{roleId},</if>
+			<if test="menuId!=null">menu_id=#{menuId},</if>
+			<if test="menuNo!=null">menu_no=#{menuNo},</if>
+			<if test="menuLevel!=null">menu_level=#{menuLevel},</if>
+			<if test="state!=null">state=#{state},</if>
+		</set>
+		where role_menu_id =#{roleMenuId}
+	</update>
+</mapper>

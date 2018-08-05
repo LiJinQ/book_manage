@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.ReaderinfoDao">
+	<select id="getAllReaderinfo" resultType="Readerinfo">
+		select * from readerinfo
+	</select>
+	<select id="getReaderinfoById" resultType="Readerinfo">
+		select * from readerinfo where reader_id= #{id}
+	</select>
+	<insert id="newReaderinfo" parameterType="Readerinfo">
+		insert into readerinfo (reader_id,reader_name,reader_sex,sign_data,social_identity,reader_tel,reader_address)
+		values 
+		(#{readerId},#{readerName},#{readerSex},#{signData},#{socialIdentity},#{readerTel},#{readerAddress})
+	</insert>
+	<delete id="deleteReaderinfo">
+		delete from readerinfo where reader_id = #{id}
+	</delete>
+	<update id="updateReaderinfo">
+		update readerinfo
+		<set>
+			<if test="readerName!=null">reader_name=#{readerName},</if>
+			<if test="readerSex!=null">reader_sex=#{readerSex},</if>
+			<if test="signData!=null">sign_Data=#{signData},</if>
+			<if test="socialIdentity!=null">social_identity=#{socialIdentity},</if>
+			<if test="readerTel!=null">reader_tel=#{readerTel},</if>
+			<if test="readerAddress!=null">reader_address=#{readerAddress},</if>
+		</set>
+		where reader_id =#{readerId}
+	</update>
+</mapper>
