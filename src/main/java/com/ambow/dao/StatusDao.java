@@ -1,5 +1,21 @@
 package com.ambow.dao;
 
-public interface StatusDao {
+import java.util.List;
 
+import com.ambow.pojo.Status;
+
+public interface StatusDao {
+	
+	public void newStatus(Status status);
+
+	public void updateStatus(Status status);
+	
+	/**
+	 * Í¨¹ýemp_levelÅÅÐò
+	 * @param ebbId
+	 * @return
+	 */
+	public List<Status> getStatusByEbbId(int ebbId);
+	
+	
 }

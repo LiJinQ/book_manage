@@ -1,5 +1,7 @@
 package com.ambow.dao;
 
-public interface RoleDao {
+import com.ambow.pojo.Role;
 
+public interface RoleDao {
+	public Role getRoleById(int id);
 }
