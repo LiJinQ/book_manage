@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.EmpBuyBookDao">	
+	<insert id="newEmpBuyBook">
+		insert into emp_buy_book (id,emp_id,book_id,buy_date)
+		values 
+		(#{id},#{empId},#{bookId},#{buyDate})
+	</insert>
+	<update id="updateEmpBuyBook">
+		update emp_buy_book 
+		<set>
+			<if test="empId!=null">emp_id=#{empId},</if>
+			<if test="bookId!=null">book_id=#{bookId},</if>
+			<if test="buyDate!=null">buy_date=#{buyDate},</if>
+		</set>
+		where id =#{id}
+	</update>
+	
+	<select id="getEmpBuyBookById" resultType="EmpBuyBook">
+		select * from emp_buy_book where id = #{id}
+	</select>
+	
+	<select id="getEmpBuyBookByEmpId" resultType="EmpBuyBook">
+		select * from emp_buy_book where emp_id = #{empId}
+	</select>
+	
+	<select id="getAllEmpBuyBook" resultType="EmpBuyBook">
+		select * from emp_buy_book
+	</select>
+</mapper>

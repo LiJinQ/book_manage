@@ -3,6 +3,8 @@ package com.ambow.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ambow.pojo.Emp;
 
 public interface EmpDao {
@@ -32,7 +34,7 @@ public interface EmpDao {
 	 * @return
 	 */
 	
-	public Emp getEmpByIdOrUserName(int id,String username);
+	public Emp getEmpByIdOrUsername(@Param("id")int id,@Param("username")String username);
 	
 	/**
 	 * 查看员工信息；根据员工姓名、员工类型、入职时间筛选员工信息
@@ -41,5 +43,5 @@ public interface EmpDao {
 	 * @param entryTime
 	 * @return
 	 */
-	public List<Emp> getEmp(String name,int roleId,Date entryTime);
+	public List<Emp> getEmp(@Param("name")String name,@Param("roleId")int roleId,@Param("entryTime")Date entryTime);
 }

@@ -2,6 +2,8 @@ package com.ambow.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ambow.pojo.BookType;
 
 public interface BookTypeDao {
@@ -12,7 +14,7 @@ public interface BookTypeDao {
 
 	public void deleteBookTypeById(int id);
 	
-	public BookType getBookTypeByIdOrName(int id,String name);
+	public BookType getBookTypeByIdOrName(@Param("id")int id,@Param("name")String name);
 	
 	public List<BookType> getAllBookType();
 

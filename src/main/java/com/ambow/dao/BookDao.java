@@ -20,7 +20,7 @@ public interface BookDao {
 	 * @param name
 	 * @return
 	 */
-	public List<Book> getBookByTypeIdOrName(@Param("typeId")int typeId,String name);
+	public List<Book> getBookByTypeIdOrName(@Param("typeId")int typeId,@Param("name")String name);
 	
 	public Book getBookById(int id);
 	

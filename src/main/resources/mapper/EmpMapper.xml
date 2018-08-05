@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.EmpDao">	
+	<insert id="newEmp">
+		insert into emp (id,number,username,password,name,role_id,sex,entry_time,tel,address)
+		values 
+		(#{id},#{number},#{username},#{password},#{name},#{roleId},#{sex},#{entryTime},#{tel},#{address})
+	</insert>
+	<update id="updateEmp">
+		update emp 
+		<set>
+			<if test="number!=null">number=#{number},</if>
+			<if test="password!=null">password=#{password},</if>
+			<if test="name!=null">name=#{name},</if>
+			<if test="roleId!=null">role_id=#{roleId},</if>
+			<if test="sex!=null">sex=#{sex},</if>
+			<if test="entryTime!=null">entry_time=#{entryTime},</if>
+			<if test="tel!=null">tel=#{tel},</if>
+			<if test="address!=null">address=#{address},</if>
+		</set>
+		where id =#{id}
+	</update>
+	<delete id="deleteEmpById">
+		delete from emp where id =#{id}
+	</delete>
+	
+	<select id="getEmpByIdOrUsername" resultType="Emp">
+		select * from emp where 1=1
+		<if test="id!=0">and id=#{id}</if>
+		<if test="username!=null">and username=#{username}</if>
+	</select>
+	
+	<select id="getEmp" resultType="Emp">
+		select * from emp where 1=1
+		<if test="name!=null">and name = #{name}</if>
+		<if test="roleId!=0">and role_id = #{roleId}</if>
+		<if test="entryTime!=null">and entry_time =#{entryTime}</if>
+	</select>
+	
+</mapper>

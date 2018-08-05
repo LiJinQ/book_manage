@@ -10,35 +10,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.ambow.dao.BookDao;
-import com.ambow.pojo.Book;
+import com.ambow.dao.BookTypeDao;
+import com.ambow.pojo.BookType;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:spring-db.xml","classpath:spring-mvc.xml","classpath:spring.xml"})
-public class BookTest {
+public class BookTypeTest {
 	
 	@Autowired
-	private BookDao bd;
+	private BookTypeDao bd;
 	
 	@Test
 	public void testNew() {
-		Date date = new Date();
-		Book book = new Book(0, "20010101001", 1, "aa", "aa", "aa", "aa", date, 3, 1, 1);
-		bd.newBook(book);
+		BookType book = new BookType(0, "aa");
+		bd.newBookType(book);
 	}
 	
 	@Test
 	public void testUpDate() {
-		Date date = new Date();
-		Book book = new Book(0, "20010101001", 2, "aa", "aa", "aa", "aa", date, 3, 1, 1);
-		bd.updateBook(book); 
+		BookType book = new BookType(0, "aa");
+		bd.updateBookType(book); 
 	}
 	@Test
 	public void testDelete() {
-		bd.deleteBookById(0);
+		bd.deleteBookTypeById(0);
 	}
 	@Test
 	public void testGet() {
-		System.out.println(bd.getBookByTypeIdOrName(2, null));
+		System.out.println(bd.getBookTypeByIdOrName(1, null));
 	}
 	
 
