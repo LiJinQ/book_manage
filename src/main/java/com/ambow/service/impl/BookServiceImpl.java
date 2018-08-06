@@ -16,21 +16,21 @@ public class BookServiceImpl implements BookService{
 	private BookDao bd;
 	
 	@Override
-	public void newBook(Book book) {
+	public int newBook(Book book) {
 		// TODO Auto-generated method stub
-		bd.newBook(book);
+		return bd.newBook(book);
 	}
 
 	@Override
-	public void updateBook(Book book) {
+	public int updateBook(Book book) {
 		// TODO Auto-generated method stub
-		bd.updateBook(book);
+		return bd.updateBook(book);
 	}
 
 	@Override
-	public void deleteBookById(int id) {
+	public int deleteBookById(int id) {
 		// TODO Auto-generated method stub
-		bd.deleteBookById(id);
+		return bd.deleteBookById(id);
 	}
 
 	@Override

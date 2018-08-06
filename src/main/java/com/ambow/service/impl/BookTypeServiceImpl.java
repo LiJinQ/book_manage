@@ -16,21 +16,21 @@ public class BookTypeServiceImpl implements BookTypeService{
 	private BookTypeDao btd;
 	
 	@Override
-	public void newBookType(BookType bookType) {
+	public int newBookType(BookType bookType) {
 		// TODO Auto-generated method stub
-		btd.newBookType(bookType);
+		return btd.newBookType(bookType);
 	}
 
 	@Override
-	public void deleteBookTypeById(int id) {
+	public int deleteBookTypeById(int id) {
 		// TODO Auto-generated method stub
-		btd.deleteBookTypeById(id);
+		return btd.deleteBookTypeById(id);
 	}
 
 	@Override
-	public void updateBookType(BookType bookType) {
+	public int updateBookType(BookType bookType) {
 		// TODO Auto-generated method stub
-		btd.updateBookType(bookType);
+		return btd.updateBookType(bookType);
 	}
 
 	@Override

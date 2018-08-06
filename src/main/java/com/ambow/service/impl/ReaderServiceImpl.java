@@ -16,21 +16,21 @@ public class ReaderServiceImpl implements ReaderService {
 	private ReaderDao rd;
 	
 	@Override
-	public void newReader(Reader reader) {
+	public int newReader(Reader reader) {
 		// TODO Auto-generated method stub
-		rd.newReader(reader);
+		return rd.newReader(reader);
 	}
 
 	@Override
-	public void updateReader(Reader reader) {
+	public int updateReader(Reader reader) {
 		// TODO Auto-generated method stub
-		rd.updateReader(reader);
+		return rd.updateReader(reader);
 	}
 
 	@Override
-	public void deleteReaderById(int id) {
+	public int deleteReaderById(int id) {
 		// TODO Auto-generated method stub
-		rd.deleteReaderById(id);
+		return rd.deleteReaderById(id);
 	}
 
 	@Override

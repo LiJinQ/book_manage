@@ -8,11 +8,11 @@ import com.ambow.pojo.Book;
 
 public interface BookDao {
 	
-	public void newBook(Book book);
+	public int newBook(Book book);
 	
-	public void updateBook(Book book);
+	public int updateBook(Book book);
 	
-	public void deleteBookById(int id);
+	public int deleteBookById(int id);
 
 	public List<Book> getBookByTypeIdOrName(@Param("typeId")int typeId,@Param("name")String name);
 	
