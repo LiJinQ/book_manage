@@ -18,11 +18,6 @@ public class StatusTest {
 	StatusDao statusdao;
 	
 	@Test
-	public void testnewStatus() {
-		statusdao.newStatus(new Status(3,3,3,3,new Date()));
-	}
-	
-	@Test
 	public void testupdateStatus() {
 		statusdao.updateStatus(new Status(2,2,2,2,2,new Date()));
 	}
