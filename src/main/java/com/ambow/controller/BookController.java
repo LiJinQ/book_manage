@@ -27,8 +27,8 @@ public class BookController {
 	@RequestMapping("/newBook.do")
 	public boolean newBook(@RequestBody Book book) {
 		bs.newBook(book);
-		if(book.getId()!=0) {
-			return true;
+		if(book.getId()!=0)  {
+			return true; 
 		}else {
 			return false;
 		}
