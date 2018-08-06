@@ -1,5 +1,19 @@
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ÿ</title>
+<base href="/">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
 <body>
-<h2>Hello World!</h2>
+	<app-root></app-root>
+	<script type="text/javascript" src="bookManage/js/runtime.js"></script>
+	<script type="text/javascript" src="bookManage/js/polyfills.js"></script>
+	<script type="text/javascript" src="bookManage/js/styles.js"></script>
+	<script type="text/javascript" src="bookManage/js/vendor.js"></script>
+	<script type="text/javascript" src="bookManage/js/main.js"></script>
 </body>
 </html>

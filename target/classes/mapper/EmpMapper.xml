@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from emp where 1=1
 		<if test="name!=null">and name = #{name}</if>
 		<if test="roleId!=0">and role_id = #{roleId}</if>
-		<if test="entryTime!=null">and entry_time =#{entryTime}</if>
+		<if test="entryTime!=null">and entry_time >#{entryTime}</if>
 	</select>
 	
 </mapper>
