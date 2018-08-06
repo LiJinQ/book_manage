@@ -85,4 +85,16 @@ public class BookController {
 			return booklist;
 		}
 	}
+	
+	@RequestMapping("/getBookBySearch.do")
+	@ResponseBody
+	public List<Book> getBookBySearch(@RequestBody String content){
+		List <Book> booklist=bs.getBookBySearch(content);
+		if(booklist==null) {
+			return null;
+		}else {
+			return booklist;
+		}
+	}
+
 }

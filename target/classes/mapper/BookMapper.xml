@@ -42,4 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllBook" resultType="Book">
 		select * from book
 	</select>
+	
+	<select id="getBookBySearch" resultType="Book">
+		select * from book where concat(number,name,author,translator) like #{content}
+	</select>
 </mapper>

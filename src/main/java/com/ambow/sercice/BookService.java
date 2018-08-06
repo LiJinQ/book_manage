@@ -12,4 +12,5 @@ public interface BookService {
 	public List<Book> getAllBook();
 	public List<Book> getBookByTypeId(int typeId);
 	public List<Book> getBookByName(String name);
+	public List<Book> getBookBySearch(String content);
 }

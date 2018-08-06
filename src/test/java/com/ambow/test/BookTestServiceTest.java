@@ -9,13 +9,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ambow.sercice.BookService;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:spring-db.xml","classpath:spring-mvc.xml","classpath:spring.xml"})
-public class BookServiceTest {
-	@Autowired
-	private BookService bs;
+public class BookTestServiceTest {
 
+	@Autowired
+	BookService bs;
+	
 	@Test
 	public void testNewBook() {
 		fail("Not yet implemented");
@@ -51,6 +51,9 @@ public class BookServiceTest {
 		fail("Not yet implemented");
 	}
 
-	
+	@Test
+	public void testGetBookBySearch() {
+		System.out.println(bs.getBookBySearch("201"));
+	}
 
 }

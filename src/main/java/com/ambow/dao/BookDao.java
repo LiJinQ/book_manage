@@ -19,4 +19,6 @@ public interface BookDao {
 	public Book getBookById(int id);
 	
 	public List<Book> getAllBook();
+	
+	public List<Book> getBookBySearch(String content);
 }

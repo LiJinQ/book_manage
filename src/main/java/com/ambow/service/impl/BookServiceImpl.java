@@ -57,4 +57,9 @@ public class BookServiceImpl implements BookService{
 		return bd.getBookByTypeIdOrName(0, name);
 	}
 
+	@Override
+	public List<Book> getBookBySearch(String content) {
+		// TODO Auto-generated method stub
+		return bd.getBookBySearch("%"+content+"%");
+	}
 }
