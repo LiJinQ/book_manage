@@ -11,4 +11,5 @@ public interface ReaderService {
 	public Reader getReaderById(int id);
 	public List<Reader> getAllReader();
 	public List<Reader> getReaderByName(String name);
+	public List<Reader> getReaderSearch(String content);
 }

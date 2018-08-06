@@ -59,4 +59,15 @@ public class EmpController {
 	public Pager<Emp> getEmpPager(@RequestBody int pageNum,@RequestBody String sth){
 		return es.getEmpFindPager(pageNum, sth);
 	}
+	
+	@RequestMapping("/session.do")
+	@ResponseBody
+	public Emp getSession(HttpSession session) {
+		if(session.getAttribute("emp")==null) {
+			return null;
+		}else{
+			return (Emp) session.getAttribute("emp");
+		}
+	}
+	
 }

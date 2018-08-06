@@ -41,4 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllReader" resultType="Reader">
 		select * from reader
 	</select>
+	<select id="getReaderSearch" resultType="Reader">
+		select * from reader where concat(number,name,sex,entry_time,address,tel,identity) like #{content}
+	</select>
 </mapper>

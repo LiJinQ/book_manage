@@ -1,13 +1,11 @@
 package com.ambow.controller;
 
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ambow.pojo.Reader;
@@ -72,6 +70,20 @@ public class ReaderController {
 	@ResponseBody
 	public List<Reader> getReaderByName(@RequestBody String name) {
 		List <Reader> readerlist=rs.getReaderByName(name);
+		if(readerlist==null) {
+			return null;
+		}else {
+			return readerlist;
+		}
+	}
+	
+	@RequestMapping("/getReaderBySearch.do")
+	@ResponseBody
+	public List<Reader> getReaderSearch(@RequestParam(value="content",required=false)String content){
+		if(content==null) {
+			content="";
+		}
+		List<Reader> readerlist=rs.getReaderSearch(content);
 		if(readerlist==null) {
 			return null;
 		}else {

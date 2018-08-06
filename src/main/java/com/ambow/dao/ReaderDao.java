@@ -21,4 +21,6 @@ public interface ReaderDao {
 	public List<Reader> getReaderByName(String name);
 	
 	public List<Reader> getAllReader();
+	
+	public List<Reader> getReaderSearch(String content);
 }

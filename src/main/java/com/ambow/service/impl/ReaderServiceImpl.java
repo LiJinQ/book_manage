@@ -51,4 +51,10 @@ public class ReaderServiceImpl implements ReaderService {
 		return rd.getReaderByName(name);
 	}
 
+	@Override
+	public List<Reader> getReaderSearch(String content) {
+		content="%"+content+"%";
+		return rd.getReaderSearch(content);
+	}
+
 }
