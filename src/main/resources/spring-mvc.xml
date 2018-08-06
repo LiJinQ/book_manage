@@ -32,12 +32,15 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 			<value>4096</value>
 		</property>
 	</bean>
-	
+
+	<mvc:annotation-driven />
+	<bean id = "stringHttpMessageConverter" class = "org.springframework.http.converter.StringHttpMessageConverter"/>
+
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!-- 所有请求都进入拦截器 -->
-			<mvc:mapping path="/**"/>
-			<mvc:exclude-mapping path="/user/login.do"/>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/user/login.do" />
 			<bean class="com.ambow.interceptor.EmpinfoInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
