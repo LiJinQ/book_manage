@@ -28,15 +28,15 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public void newEmp(Emp emp) {
+	public int newEmp(Emp emp) {
 		// TODO Auto-generated method stub
-		ed.newEmp(emp);
+		return ed.newEmp(emp);
 	}
 
 	@Override
-	public void updateEmp(Emp emp) {
+	public int updateEmp(Emp emp) {
 		// TODO Auto-generated method stub
-		ed.updateEmp(emp);
+		return ed.updateEmp(emp);
 	}
 
 	@Override

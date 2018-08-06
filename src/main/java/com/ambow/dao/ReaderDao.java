@@ -5,16 +5,16 @@ import java.util.List;
 import com.ambow.pojo.Reader;
 
 public interface ReaderDao {
-	public void newReader(Reader reader);
+	public int newReader(Reader reader);
 
-	public void updateReader(Reader reader);
+	public int updateReader(Reader reader);
 
-	public void deleteReaderById(int id);
+	public int deleteReaderById(int id);
 	
 	public Reader getReaderById(int id);
 	
 	/**
-	 * Ä£ºý²éÑ¯
+	 * Ä£ï¿½ï¿½ï¿½ï¿½Ñ¯
 	 * @param name
 	 * @return
 	 */

@@ -8,11 +8,11 @@ import com.ambow.pojo.BookType;
 
 public interface BookTypeDao {
 	
-	public void newBookType(BookType booktype);
+	public int newBookType(BookType booktype);
 
-	public void updateBookType(BookType booktype);
+	public int updateBookType(BookType booktype);
 
-	public void deleteBookTypeById(int id);
+	public int deleteBookTypeById(int id);
 	
 	public BookType getBookTypeByIdOrName(@Param("id")int id,@Param("name")String name);
 	
