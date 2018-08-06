@@ -24,8 +24,8 @@ public class EmpController {
 	@ResponseBody
 	public Emp login(@RequestBody Emp emp, HttpSession session) {
 		if(es.login(emp)) {
-			session.setAttribute("emp", emp);
-			return es.getEmpByUsername(emp.getUsername());
+			session.setAttribute("emp", es.getEmpByUsername(emp.getUsername()));
+			return (Emp) session.getAttribute("emp");
 		}
 		return null;
 	}
