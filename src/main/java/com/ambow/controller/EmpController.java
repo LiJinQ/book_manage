@@ -1,5 +1,7 @@
 package com.ambow.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,8 +21,9 @@ public class EmpController {
 	
 	@RequestMapping(value="login.do",method = RequestMethod.POST)
 	@ResponseBody
-	public Emp login(@RequestBody Emp emp) {
+	public Emp login(@RequestBody Emp emp, HttpSession session) {
 		if(es.login(emp)) {
+			session.setAttribute("emp", emp);
 			return es.getEmpByUsername(emp.getUsername());
 		}
 		return null;

@@ -108,7 +108,7 @@ module.exports = ":host ::ng-deep .trigger {\n  font-size: 18px;\n  line-height:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nz-layout style=\"height: 100%;\">\n  <nz-sider nzCollapsible [(nzCollapsed)]=\"isCollapsed\" [nzTrigger]=\"triggerTemplate\">\n    <app-menus></app-menus>\n  </nz-sider>\n  <nz-layout>\n    <nz-header style=\"background: #fff; padding:0;\">\n      <i class=\"anticon trigger\" [class.anticon-menu-fold]=\"!isCollapsed\" [class.anticon-menu-unfold]=\"isCollapsed\"\n         (click)=\"isCollapsed=!isCollapsed\"></i>\n      <ul nz-menu [nzMode]=\"'horizontal'\" style=\"float: right; margin-top: 5px;\">\n        <li nz-submenu *ngIf=\"userService.getCurrentUser()\">\n          <span title><i class=\"anticon anticon-user\"></i> {{ userService.getCurrentUser().empName }}</span>\n          <ul>\n            <li nz-menu-item>个人信息</li>\n            <li nz-menu-item (click)=\"logout()\">注销</li>\n          </ul>\n        </li>\n        <li nz-submenu *ngIf=\"null==userService.getCurrentUser()\">\n          <span title><i class=\"anticon anticon-user\"></i> 未登录</span>\n        </li>\n      </ul>\n    </nz-header>\n    <nz-content style=\"margin:0 16px;\">\n      <nz-breadcrumb style=\"margin:16px 0;\">\n      </nz-breadcrumb>\n      <div style=\"padding:24px; background: #fff; min-height: 360px;\">\n        <router-outlet></router-outlet>\n      </div>\n    </nz-content>\n    <nz-footer style=\"text-align: center;\">图书借阅管理系统 ©2018</nz-footer>\n  </nz-layout>\n</nz-layout>\n<ng-template #trigger>\n  <i class=\"anticon anticon-up\"></i>\n</ng-template>\n"
+module.exports = "<nz-layout style=\"height: 100%;\">\n  <nz-sider nzCollapsible [(nzCollapsed)]=\"isCollapsed\" [nzTrigger]=\"triggerTemplate\">\n    <app-menus></app-menus>\n  </nz-sider>\n  <nz-layout>\n    <nz-header style=\"background: #fff; padding:0;\">\n      <i class=\"anticon trigger\" [class.anticon-menu-fold]=\"!isCollapsed\" [class.anticon-menu-unfold]=\"isCollapsed\"\n         (click)=\"isCollapsed=!isCollapsed\"></i>\n      <ul nz-menu [nzMode]=\"'horizontal'\" style=\"float: right; margin-top: 5px;\">\n        <li nz-submenu *ngIf=\"userService.getCurrentUser()\">\n          <span title><i class=\"anticon anticon-user\"></i> {{ userService.getCurrentUser().name }}</span>\n          <ul>\n            <li nz-menu-item>个人信息</li>\n            <li nz-menu-item (click)=\"logout()\">注销</li>\n          </ul>\n        </li>\n        <li nz-submenu *ngIf=\"null==userService.getCurrentUser()\">\n          <span title><i class=\"anticon anticon-user\"></i> 未登录</span>\n        </li>\n      </ul>\n    </nz-header>\n    <nz-content style=\"margin:0 16px;\">\n      <nz-breadcrumb style=\"margin:16px 0;\">\n      </nz-breadcrumb>\n      <div style=\"padding:24px; background: #fff; min-height: 360px;\">\n        <router-outlet></router-outlet>\n      </div>\n    </nz-content>\n    <nz-footer style=\"text-align: center;\">图书借阅管理系统 ©2018</nz-footer>\n  </nz-layout>\n</nz-layout>\n<ng-template #trigger>\n  <i class=\"anticon anticon-up\"></i>\n</ng-template>\n"
 
 /***/ }),
 
@@ -492,11 +492,13 @@ var httpOptions = {
 };
 var UserService = /** @class */ (function () {
     function UserService(http) {
+        var _this = this;
         this.http = http;
-        this.loginUrl = 'http://localhost:8080/emp/login.do';
+        this.http.get('assets/urls.json')
+            .subscribe(function (data) { return _this.loginUrl = data['login']; });
     }
     UserService.prototype.login = function (user) {
-        return this.http.post(this.loginUrl, user, httpOptions).pipe();
+        return this.http.post(this.loginUrl, user, httpOptions);
     };
     UserService.prototype.setCurrentUser = function (currentUser) {
         this.currentUser = currentUser;
