@@ -15,78 +15,78 @@ import com.ambow.service.impl.ReaderServiceImpl;
 @Controller
 @RequestMapping("/Reader")
 public class ReaderController {
-	
+
 	@Autowired
 	ReaderService rs;
-	
+
 	@RequestMapping("/newReader")
 	@ResponseBody
 	public boolean newReader(@RequestBody Reader reader) {
-		if(rs.newReader(reader)!=1) {
+		if (rs.newReader(reader) != 1) {
 			return false;
-		}else {
+		} else {
 			return true;
 		}
 	}
-	
+
 	@RequestMapping("/updateReader")
 	@ResponseBody
 	public boolean updateReader(@RequestBody Reader reader) {
-		if(rs.updateReader(reader)!=1) {
+		if (rs.updateReader(reader) != 1) {
 			return false;
-		}else{
+		} else {
 			return true;
 		}
 	}
-	
+
 	@RequestMapping("/deleteReaderById")
 	@ResponseBody
 	public boolean deleteReaderById(@RequestBody Integer id) {
-		if(rs.deleteReaderById(id)!=1) {
+		if (rs.deleteReaderById(id) != 1) {
 			return false;
-		}else {
+		} else {
 			return true;
 		}
 	}
-	
+
 	@RequestMapping("/getReaderById")
 	@ResponseBody
 	public Reader getReaderById(@RequestBody Integer id) {
-		Reader reader=rs.getReaderById(id);
-		if(reader==null) {
+		Reader reader = rs.getReaderById(id);
+		if (reader == null) {
 			return null;
-		}else {
+		} else {
 			return reader;
 		}
 	}
-	
+
 	@RequestMapping("/getAllReader")
 	@ResponseBody
 	public List<Reader> getAllReader() {
 		return rs.getAllReader();
 	}
-	
+
 	@RequestMapping("/getReaderByName")
 	@ResponseBody
 	public List<Reader> getReaderByName(@RequestBody String name) {
-		List <Reader> readerlist=rs.getReaderByName(name);
-		if(readerlist==null) {
+		List<Reader> readerlist = rs.getReaderByName(name);
+		if (readerlist == null) {
 			return null;
-		}else {
+		} else {
 			return readerlist;
 		}
 	}
-	
+
 	@RequestMapping("/getReaderBySearch.do")
 	@ResponseBody
-	public List<Reader> getReaderSearch(@RequestParam(value="content",required=false)String content){
-		if(content==null) {
-			content="";
+	public List<Reader> getReaderSearch(@RequestBody(required = false) String content) {
+		if (content == null) {
+			content = "";
 		}
-		List<Reader> readerlist=rs.getReaderSearch(content);
-		if(readerlist==null) {
+		List<Reader> readerlist = rs.getReaderSearch(content);
+		if (readerlist == null) {
 			return null;
-		}else {
+		} else {
 			return readerlist;
 		}
 	}

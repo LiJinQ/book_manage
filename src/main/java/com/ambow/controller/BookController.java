@@ -87,7 +87,8 @@ public class BookController {
 	
 	@RequestMapping("/getBookBySearch.do")
 	@ResponseBody
-	public List<Book> getBookBySearch(@RequestParam(value="content",required=false)String content){
+	public List<Book> getBookBySearch(@RequestBody(required=false) String content){
+		System.out.println(content);
 		if(content==null) {
 			content="";
 		}
