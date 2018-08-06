@@ -9,7 +9,7 @@ import com.ambow.dao.BookDao;
 import com.ambow.pojo.Book;
 import com.ambow.sercice.BookService;
 
-@Service
+@Service(value="BookServiceImpl")
 public class BookServiceImpl implements BookService{
 
 	@Autowired

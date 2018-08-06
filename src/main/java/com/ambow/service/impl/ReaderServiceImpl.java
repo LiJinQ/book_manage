@@ -9,7 +9,7 @@ import com.ambow.dao.ReaderDao;
 import com.ambow.pojo.Reader;
 import com.ambow.sercice.ReaderService;
 
-@Service
+@Service()
 public class ReaderServiceImpl implements ReaderService {
 
 	@Autowired
