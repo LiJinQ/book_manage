@@ -88,6 +88,9 @@ public class BookController {
 	@RequestMapping("/getBookBySearch.do")
 	@ResponseBody
 	public List<Book> getBookBySearch(@RequestParam(value="content",required=false)String content){
+		if(content==null) {
+			content="";
+		}
 		List <Book> booklist=bs.getBookBySearch(content);
 		if(booklist==null) {
 			return null;
