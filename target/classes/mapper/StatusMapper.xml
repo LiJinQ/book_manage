@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.StatusDao">
+	<insert id="newStatus">
+		insert into status
+		(ebb_id,emp_id,status,emp_level,update_date)
+		values
+		(#{ebbId},#{empId},#{status},#{empLevel},#{updateDate})
+	</insert>
+	<update id="updateStatus">
+		update status 
+		<set>
+			<if test="ebbId!=null">ebb_id=#{ebbId},</if>
+			<if test="empId!=null">emp_id=#{empId},</if>
+			<if test="status!=null">status=#{status},</if>
+			<if test="empLevel!=null">emp_level=#{empLevel},</if>
+			<if test="updateDate!=null">update_date=#{updateDate},</if>
+		</set>
+		where id =#{id}
+	</update>
+	<select id="getStatusByEbbId" resultType="Status">
+		select * from status where ebb_id = #{id} order by emp_level asc
+	</select>
+</mapper>

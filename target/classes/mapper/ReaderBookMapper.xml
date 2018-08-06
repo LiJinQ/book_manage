@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ambow.dao.ReaderBookDao">
+	<insert id="newReaderBook">
+		insert into reader_book (id,reader_id,book_id,start_date,back_date,price)
+		values
+		(#{id},#{readerId},#{bookId},#{startDate},#{backDate},#{price})
+	</insert>
+	<update id="updateReaderBook">
+		UPDATE reader_book
+		<set>
+			<if test="readerId!=null">reader_id=#{readerId},</if>
+			<if test="bookId!=null">book_id=#{bookId},</if>
+			<if test="startDate!=null">start_date=#{startDate},</if>
+			<if test="backDate!=null">back_date=#{backDate},</if>
+			<if test="price!=null">price=#{price},</if>
+		</set>
+		WHERE
+		id=#{id}
+	</update>
+	<select id="getReaderBookByReaderId" resultType="ReaderBook">
+		select * from reader_book
+		where
+		reader_id =#{readerId}
+	</select>
+	<select id="getAllReaderBook" resultType="ReaderBook">
+		select * from reader_book
+	</select>
+	<select id="getReaderBookById" resultType="ReaderBook">
+		select * from reader_book
+		where
+		id=#{id}
+	</select>
+	<select id="getNow" resultType="Date">
+		select Now()
+	</select>
+</mapper>
