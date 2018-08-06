@@ -2,12 +2,11 @@ package com.ambow.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ambow.pojo.Book;
@@ -88,7 +87,7 @@ public class BookController {
 	
 	@RequestMapping("/getBookBySearch.do")
 	@ResponseBody
-	public List<Book> getBookBySearch(@RequestBody String content){
+	public List<Book> getBookBySearch(@RequestParam(value="content",required=false)String content){
 		List <Book> booklist=bs.getBookBySearch(content);
 		if(booklist==null) {
 			return null;
