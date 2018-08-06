@@ -44,4 +44,6 @@ public interface EmpDao {
 
 	public int getTotalRecord();
 	public List<Emp> getEmpPager(Pager<Emp> pager);
+	
+	public List<Emp> getEmpFind(@Param("pager")Pager<Emp> pager,@Param("sth")String sth);
 }

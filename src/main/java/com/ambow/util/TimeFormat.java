@@ -2,9 +2,16 @@ package com.ambow.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class TimeFormat {
+	public static Date addTime(Date start,int days) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(start);
+		c.add(Calendar.DAY_OF_MONTH, days);
+		return c.getTime();
+	}
 	public static String dateToString(Date date) {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return formatter.format(date);	

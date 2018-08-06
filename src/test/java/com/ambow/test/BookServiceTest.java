@@ -51,9 +51,6 @@ public class BookServiceTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	public void testGetBookBySearch() {
-		System.out.println(bs.getBookBySearch("201"));
-	}
+	
 
 }

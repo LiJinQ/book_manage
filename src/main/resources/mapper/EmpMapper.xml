@@ -45,4 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getEmpPager" parameterType="com.ambow.vo.Pager" resultType="Emp">
 		select * from emp limit #{startIndex},#{pageSize}
 	</select>
+	<select id="getEmpFind" resultType="Emp">
+		select * from emp where name like #{sth} or username like #{sth} or number like #{sth} 
+		limit #{pager.startIndex},#{pager.pageSize}
+	</select>
 </mapper>

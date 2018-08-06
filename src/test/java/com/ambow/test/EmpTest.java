@@ -32,7 +32,7 @@ public class EmpTest {
 		int totalRecord = ed.getTotalRecord();
 		Pager<Emp> pager = new Pager<>( 1, 5, totalRecord);
 		System.out.println(pager);
-		pager.setList(ed.getEmpPager(pager));
+		pager.setList(ed.getEmpFind(pager, "%t%"));
 		for(Emp e:pager.getList()) {
 			System.out.println(e);
 		}

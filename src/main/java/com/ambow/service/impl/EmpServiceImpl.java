@@ -67,4 +67,20 @@ public class EmpServiceImpl implements EmpService {
 		return pager;
 	}
 
+	@Override
+	public int deleteEmpById(int id) {
+		// TODO Auto-generated method stub
+		return ed.deleteEmpById(id);
+	}
+
+	@Override
+	public Pager<Emp> getEmpFindPager(int pageNum, String sth) {
+		// TODO Auto-generated method stub
+		int totalRecord = ed.getTotalRecord();
+		sth = "%"+sth+"%";
+		Pager<Emp> pager = new Pager<Emp>(pageNum, 10, totalRecord);
+		pager.setList(ed.getEmpFind(pager, sth));
+		return pager;
+	}
+
 }
