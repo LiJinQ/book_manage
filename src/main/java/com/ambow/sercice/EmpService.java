@@ -3,6 +3,7 @@ package com.ambow.sercice;
 import java.util.List;
 
 import com.ambow.pojo.Emp;
+import com.ambow.vo.Pager;
 
 public interface EmpService {
 	public boolean login(Emp emp);
@@ -11,4 +12,5 @@ public interface EmpService {
 	public Emp getEmpById(int id);	
 	public List<Emp> getAllEmp();
 	public Emp getEmpByUsername(String username);
+	public Pager<Emp> getEmpPager(int pageNum);
 }

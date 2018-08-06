@@ -20,6 +20,7 @@ public class BookTypeController {
 	@RequestMapping("/getAllBookType.do")
 	@ResponseBody
 	public List<BookType> getAllBookType(){
+		System.out.println(bts.getAllBookType());
 		return bts.getAllBookType();
 	}
 	

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ambow.dao.EmpDao;
 import com.ambow.pojo.Emp;
 import com.ambow.sercice.EmpService;
+import com.ambow.vo.Pager;
 
 @Service
 public class EmpServiceImpl implements EmpService {
@@ -55,6 +56,15 @@ public class EmpServiceImpl implements EmpService {
 	public Emp getEmpByUsername(String username) {
 		// TODO Auto-generated method stub
 		return ed.getEmpByIdOrUsername(0, username);
+	}
+
+	@Override
+	public Pager<Emp> getEmpPager(int pageNum) {
+		// TODO Auto-generated method stub
+		int totalRecord = ed.getTotalRecord();
+		Pager<Emp> pager = new Pager<Emp>(pageNum, 10, totalRecord);
+		pager.setList(ed.getEmpPager(pager));
+		return pager;
 	}
 
 }
