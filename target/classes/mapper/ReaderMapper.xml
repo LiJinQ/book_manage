@@ -59,8 +59,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reader 
 		where
 		name like #{name}
-		limit #{pager.startIndex},#{pager.pageSize}
 		order by id desc
+		limit #{pager.startIndex},#{pager.pageSize}
+		
 	</select>
 	<select id="getAllReaderPager" resultType="Reader">
 		select * from reader limit #{pager.startIndex},#{pager.pageSize}
@@ -68,7 +69,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="getReaderPagerSearch" resultType="Reader">
 		select * from reader where concat(number,name,sex,entry_time,address,tel,identity) like #{content}
-		limit #{pager.startIndex},#{pager.pageSize}
 		order by id desc
+		limit #{pager.startIndex},#{pager.pageSize}
+		
 	</select>
 </mapper>

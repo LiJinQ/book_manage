@@ -43,8 +43,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reader_book where 1=1
 		<if test="readerId!=0">and reader_id=#{readerId}</if>
 		<if test="bookId!=0">and book_id=#{bookId}</if>
-		limit #{pager.startIndex},#{pager.pageSize}
 		order by id desc
+		limit #{pager.startIndex},#{pager.pageSize}
+		
 	</select>
 	<select id="getTotalRecord" resultType="int">
 		select count(*) from reader_book where 1=1

@@ -50,8 +50,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getBookTypeFind" resultType="BookType">
 		select * from book_type
 		where id like #{sth} or name like #{sth}
+		order by id desc
 		limit
 		#{pager.startIndex},#{pager.pageSize}
-		order by id desc
+		
 	</select>
 </mapper>
