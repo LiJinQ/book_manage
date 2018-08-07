@@ -25,7 +25,7 @@ public interface BookDao {
 	
 	public List<Book> getBookPagerByTypeIdOrName(@Param("pager")Pager<Book> pager,@Param("typeId")int typeId,@Param("name")String name);
 	
-	public List<Book> getBookPagerBySearch(@Param("pager")Pager<Book> pager,@Param("pager")String content);
+	public List<Book> getBookPagerBySearch(@Param("pager")Pager<Book> pager,@Param("content")String content);
 
 	public int getTotalRecord(@Param("typeId")int typeId,@Param("name")String name);
 	

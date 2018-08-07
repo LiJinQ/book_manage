@@ -52,11 +52,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalSearchRecord" resultType="int">
 		select count(*) from reader where concat(number,name,sex,entry_time,address,tel,identity) like #{content}
 	</select>
-	
-	<select id="getAllReader" resultType="Reader">
-		select * from reader
+	<select id="getReaderPagerByName" resultType="Reader">
+		select * from reader 
+		where
+		name like #{name}
+		limit #{pager.startIndex},#{pager.pageSize}
 	</select>
-	<select id="getReaderSearch" resultType="Reader">
+	<select id="getAllReaderPager" resultType="Reader">
+		select * from reader limit #{pager.startIndex},#{pager.pageSize}
+	</select>
+	<select id="getReaderPagerSearch" resultType="Reader">
 		select * from reader where concat(number,name,sex,entry_time,address,tel,identity) like #{content}
+		limit #{pager.startIndex},#{pager.pageSize}
 	</select>
 </mapper>

@@ -12,12 +12,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ambow.dao.BookDao;
 import com.ambow.pojo.Book;
+import com.ambow.sercice.BookService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:spring-db.xml","classpath:spring-mvc.xml","classpath:spring.xml"})
 public class BookTest {
 	
 	@Autowired
 	private BookDao bd;
+	@Autowired
+	private BookService bs;
 	
 	@Test
 	public void testNew() {
@@ -38,7 +41,7 @@ public class BookTest {
 	}
 	@Test
 	public void testGet() {
-		System.out.println(bd.getBookByTypeIdOrName(2, null));
+		System.out.println(bs.getBookBySearch(0, "1"));
 	}
 	
 

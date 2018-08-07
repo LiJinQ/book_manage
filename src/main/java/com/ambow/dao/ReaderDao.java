@@ -34,4 +34,6 @@ public interface ReaderDao {
 	public List<Reader> getReaderPagerByName(@Param("pager") Pager<Reader> pager,@Param("name") String name);
 	
 	public List<Reader> getReaderPagerSearch(@Param("pager") Pager<Reader> pager,@Param("content") String content);
+	
+	public List<Reader> getAllReaderPager(Pager<Reader> pager);
 }
