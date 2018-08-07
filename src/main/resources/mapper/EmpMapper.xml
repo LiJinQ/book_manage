@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update emp 
 		<set>
 			<if test="number!=null">number=#{number},</if>
+			<if test="password!=null">username=#{username},</if>
 			<if test="password!=null">password=#{password},</if>
 			<if test="name!=null">name=#{name},</if>
 			<if test="roleId!=null">role_id=#{roleId},</if>
