@@ -1,6 +1,7 @@
 package com.ambow.sercice;
 
 import com.ambow.pojo.ReaderBook;
+import com.ambow.vo.Pager;
 
 public interface ReaderBookService {
 	/**
@@ -12,6 +13,16 @@ public interface ReaderBookService {
 	 * @return
 	 */
 	public int borrowBook(ReaderBook readerBook);
-	public int backBook(ReaderBook readerBook);
-	public ReaderBook getBackPrice();
+	public int backBook(int readerBookId);
+	/**
+	 * @param id 主键
+	 * @param lost	1：已丢失
+	 * @param damaged	2：已损坏
+	 * @return
+	 */
+	public ReaderBook getBackPrice(int id,int lost,int damaged);
+	public Pager<ReaderBook> getReaderBookByReaderId(int pageNum,int readerId);
+	public Pager<ReaderBook> getReaderBookByBookId(int pageNum,int bookId);
+	public Pager<ReaderBook> getAllReaderBook(int pageNum);
+	public ReaderBook getReaderBookById(int id);
 }
