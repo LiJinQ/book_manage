@@ -26,6 +26,15 @@ public class PagerVo {
 	 * 图书id
 	 */
 	private int bookId;
+	private int readerBookId;
+	public int getReaderBookId() {
+		return readerBookId;
+	}
+
+	public void setReaderBookId(int readerBookId) {
+		this.readerBookId = readerBookId;
+	}
+
 	public PagerVo() {
 		super();
 		// TODO Auto-generated constructor stub

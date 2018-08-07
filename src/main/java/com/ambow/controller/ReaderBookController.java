@@ -50,8 +50,8 @@ public class ReaderBookController {
 	 */
 	@RequestMapping(value = "/getBackPrice.do",method = RequestMethod.POST)
 	@ResponseBody
-	public ReaderBook getBackPrice(@RequestBody int id,@RequestBody int lost,@RequestBody int damaged) {
-		return rbs.getBackPrice(id, lost, damaged);
+	public ReaderBook getBackPrice(@RequestBody PagerVo pv) {
+		return rbs.getBackPrice(pv.getReaderBookId(), pv.getLost(), pv.getDamaged());
 	}
 	
 	@RequestMapping(value="getReaderBookByReaderId.do",method = RequestMethod.POST)
