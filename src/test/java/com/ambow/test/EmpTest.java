@@ -29,13 +29,7 @@ public class EmpTest {
 	
 	@Test
 	public void testPager() {
-		int totalRecord = ed.getTotalRecord();
-		Pager<Emp> pager = new Pager<>( 1, 5, totalRecord);
-		System.out.println(pager);
-		pager.setList(ed.getEmpFind(pager, "%t%"));
-		for(Emp e:pager.getList()) {
-			System.out.println(e);
-		}
+		System.out.println(ed.getFindTotalRecord("user"));
 	}
 
 }

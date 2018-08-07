@@ -76,8 +76,8 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public Pager<Emp> getEmpFindPager(int pageNum, String sth) {
 		// TODO Auto-generated method stub
-		int totalRecord = ed.getFindTotalRecord(sth);
 		sth = "%"+sth+"%";
+		int totalRecord = ed.getFindTotalRecord(sth);
 		Pager<Emp> pager = new Pager<Emp>(pageNum, 10, totalRecord);
 		pager.setList(ed.getEmpFind(pager, sth));
 		return pager;
