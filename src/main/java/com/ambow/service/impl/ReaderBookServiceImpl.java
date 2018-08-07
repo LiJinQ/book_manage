@@ -46,8 +46,7 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 		}
 		book.setStock(book.getStock()-1);
 		readerBook.setStartDate(rbd.getNow());
-		rbd.newReaderBook(readerBook);
-		if(readerBook.getId()<=0) {
+		if(rbd.newReaderBook(readerBook)<=0) {
 			return 3;
 		}
 		bd.updateBook(book);

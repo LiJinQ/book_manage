@@ -10,7 +10,7 @@ import com.ambow.vo.Pager;
 
 public interface ReaderBookDao {
 	
-	public void newReaderBook(ReaderBook readerBook);
+	public int newReaderBook(ReaderBook readerBook);
 	
 	public int updateReaderBook(ReaderBook readerBook);
 	

@@ -9,26 +9,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values 
 		(#{id},#{empId},#{bookId},#{buyDate})
 	</insert>
-	<update id="updateEmpBuyBook">
-		update emp_buy_book 
-		<set>
-			<if test="empId!=null">emp_id=#{empId},</if>
-			<if test="bookId!=null">book_id=#{bookId},</if>
-			<if test="buyDate!=null">buy_date=#{buyDate},</if>
-		</set>
-		where id =#{id}
-	</update>
 	
-	<select id="getEmpBuyBookById" resultType="EmpBuyBook">
-		select * from emp_buy_book where id = #{id}
+	<resultMap type="EmpBuyBook" id="empBuyBook">
+		<id column="id" jdbcType="int" property="id"/>
+		<result column="emp_id" jdbcType="int" property="empId"/>
+		<result column="book_id" jdbcType="int" property="bookId"/>
+		<result column="buy_date" jdbcType="Date" property="buyDate"/>
+		<collection column="{ebbId=emp_id}" property="lists" ofType="Status" select="getStatus">
+		</collection>
+	</resultMap>
+	
+	<select id="getStatus">
+		select * from status where ebb_id=#{ebbId}
 	</select>
 	
-	<select id="getEmpBuyBookByEmpId" resultType="EmpBuyBook">
-		select * from emp_buy_book where emp_id = #{empId}
-		order by id desc
-	</select>
-	
-	<select id="getAllEmpBuyBook" resultType="EmpBuyBook">
-		select * from emp_buy_book order by id desc
+	<select id="getEmpBuyBookById" parameterType="int" resultMap="empBuyBook">
+		select * from emp_buy_book where id=#{id}
 	</select>
 </mapper>

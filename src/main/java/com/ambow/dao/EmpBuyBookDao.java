@@ -6,13 +6,7 @@ import com.ambow.pojo.EmpBuyBook;
 
 public interface EmpBuyBookDao {
 	
-	public void newEmpBuyBook(EmpBuyBook empBuyBook);
-	
-	public void updateEmpBuyBook(EmpBuyBook empBuyBook);
-	
-	public List<EmpBuyBook> getEmpBuyBookByEmpId(int empId);
-	
-	public List<EmpBuyBook> getAllEmpBuyBook();
+	public int newEmpBuyBook(EmpBuyBook empBuyBook);
 	
 	public EmpBuyBook getEmpBuyBookById(int id);
 }
