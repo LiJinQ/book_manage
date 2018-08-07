@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ambow.dao.EmpDao;
 import com.ambow.pojo.Emp;
 import com.ambow.sercice.EmpService;
+import com.ambow.util.TimeFormat;
 import com.ambow.vo.Pager;
 
 @Service
@@ -31,6 +32,7 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public int newEmp(Emp emp) {
 		// TODO Auto-generated method stub
+		emp.setNumber(TimeFormat.getRandomNumber());
 		return ed.newEmp(emp);
 	}
 
