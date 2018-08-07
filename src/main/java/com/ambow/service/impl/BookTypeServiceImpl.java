@@ -58,8 +58,8 @@ public class BookTypeServiceImpl implements BookTypeService {
 
 	@Override
 	public Pager<BookType> getBookTypeFindPager(int pageNum, String sth) {
-		int totalRecord = btd.getFindTotalRecord(sth);
 		sth = "%" + sth + "%";
+		int totalRecord = btd.getFindTotalRecord(sth);
 		Pager<BookType> pager = new Pager<BookType>(pageNum, 10, totalRecord);
 		pager.setList(btd.getBookTypeFind(pager, sth));
 		return pager;
