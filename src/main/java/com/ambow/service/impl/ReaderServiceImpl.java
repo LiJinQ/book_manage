@@ -10,6 +10,7 @@ import com.ambow.dao.ReaderDao;
 import com.ambow.pojo.Reader;
 import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderService;
+import com.ambow.util.TimeFormat;
 import com.ambow.vo.Pager;
 
 @Service
@@ -23,6 +24,7 @@ public class ReaderServiceImpl implements ReaderService {
 	@Override
 	public int newReader(Reader reader) {
 		// TODO Auto-generated method stub
+		reader.setNumber(TimeFormat.getRandomNumber());
 		return rd.newReader(reader);
 	}
 
