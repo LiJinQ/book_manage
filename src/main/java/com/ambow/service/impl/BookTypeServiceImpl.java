@@ -28,7 +28,7 @@ public class BookTypeServiceImpl implements BookTypeService {
 	@Override
 	public int deleteBookTypeById(int id) {
 		List<Book> list = bd.getBookByTypeIdOrName(id, null);
-		if(list!=null) {
+		if(!list.isEmpty()) {
 			return 0;
 		}
 		return btd.deleteBookTypeById(id);
