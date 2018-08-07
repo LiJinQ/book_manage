@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ambow.dao.ReaderBookDao;
 import com.ambow.dao.ReaderDao;
 import com.ambow.pojo.Reader;
+import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderService;
 import com.ambow.vo.Pager;
 
@@ -15,6 +17,8 @@ public class ReaderServiceImpl implements ReaderService {
 
 	@Autowired
 	private ReaderDao rd;
+	@Autowired
+	private ReaderBookDao rbd;
 	
 	@Override
 	public int newReader(Reader reader) {
@@ -31,6 +35,12 @@ public class ReaderServiceImpl implements ReaderService {
 	@Override
 	public int deleteReaderById(int id) {
 		// TODO Auto-generated method stub
+		List<ReaderBook> list = rbd.getReaderBookByReaderId(id);
+		for(ReaderBook rb:list) {
+			if(rb.getBackDate()==null) {
+				return 0;
+			}
+		}
 		return rd.deleteReaderById(id);
 	}
 
