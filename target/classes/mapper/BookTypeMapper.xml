@@ -25,10 +25,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from book_type where 1=1
 		<if test="id!=0">and id = #{id}</if>
 		<if test="name!=null">and name = #{name}</if>
+		order by id desc
 	</select>
 
 	<select id="getAllBookType" resultType="BookType">
-		select * from book_type
+		select * from book_type order by id desc
 	</select>
 	<select id="getTotalRecord" resultType="int">
 		select count(*) from
@@ -38,6 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getBookTypePager" parameterType="com.ambow.vo.Pager"
 		resultType="BookType">
 		select * from book_type limit #{startIndex},#{pageSize}
+		order by id desc
 	</select>
 
 	<select id="getFindTotalRecord" resultType="int">
@@ -50,5 +52,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where id like #{sth} or name like #{sth}
 		limit
 		#{pager.startIndex},#{pager.pageSize}
+		order by id desc
 	</select>
 </mapper>

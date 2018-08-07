@@ -25,9 +25,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getEmpBuyBookByEmpId" resultType="EmpBuyBook">
 		select * from emp_buy_book where emp_id = #{empId}
+		order by id desc
 	</select>
 	
 	<select id="getAllEmpBuyBook" resultType="EmpBuyBook">
-		select * from emp_buy_book
+		select * from emp_buy_book order by id desc
 	</select>
 </mapper>
