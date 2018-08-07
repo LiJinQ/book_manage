@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ambow.dao.BookDao;
 import com.ambow.dao.BookTypeDao;
+import com.ambow.pojo.Book;
 import com.ambow.pojo.BookType;
 import com.ambow.sercice.BookTypeService;
 import com.ambow.vo.Pager;
@@ -15,6 +17,8 @@ public class BookTypeServiceImpl implements BookTypeService {
 
 	@Autowired
 	private BookTypeDao btd;
+	@Autowired
+	private BookDao bd;
 
 	@Override
 	public int newBookType(BookType bookType) {
@@ -23,6 +27,10 @@ public class BookTypeServiceImpl implements BookTypeService {
 
 	@Override
 	public int deleteBookTypeById(int id) {
+		List<Book> list = bd.getBookByTypeIdOrName(id, null);
+		if(list!=null) {
+			return 0;
+		}
 		return btd.deleteBookTypeById(id);
 	}
 
