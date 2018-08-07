@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.ambow.pojo.Book;
+import com.ambow.vo.Pager;
 
 public interface BookDao {
 	
@@ -21,4 +22,12 @@ public interface BookDao {
 	public List<Book> getAllBook();
 	
 	public List<Book> getBookBySearch(String content);
+	
+	public List<Book> getBookPagerByTypeIdOrName(@Param("pager")Pager<Book> pager,@Param("typeId")int typeId,@Param("name")String name);
+	
+	public List<Book> getBookPagerBySearch(@Param("pager")Pager<Book> pager,@Param("pager")String content);
+
+	public int getTotalRecord(@Param("typeId")int typeId,@Param("name")String name);
+	
+	public int getSearchTotalRecord(String content);
 }

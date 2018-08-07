@@ -46,4 +46,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getBookBySearch" resultType="Book">
 		select * from book where concat(number,name,author,translator) like #{content}
 	</select>
+	
+	<select id="getBookPagerBySearch" resultType="Book">
+		select * from book where concat(number,name,author,translator) like #{content}
+		limit #{pager.startIndex},#{pager.pageSize}
+	</select>
+	
+	<select id="getBookByTypeIdOrName" resultType="Book">
+		select * from book where 1=1
+		<if test="typeId!=0">and type_id = #{typeId}</if>
+		<if test="name!=null">and name = #{name}</if>
+		limit #{pager.startIndex},#{pager.pageSize}
+	</select>
+	
+	<select id="getTotalRecord" resultType="int">
+		select count(*) from book where 1=1
+		<if test="typeId!=0">and type_id = #{typeId}</if>
+		<if test="name!=null">and name = #{name}</if>
+	</select>
+	<select id="getSearchTotalRecord" resultType="int">
+		select count(*) from book where concat(number,name,author,translator) like #{content}
+	</select>
 </mapper>

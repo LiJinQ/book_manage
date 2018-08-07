@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ambow.pojo.Book;
 import com.ambow.sercice.BookService;
+import com.ambow.vo.Pager;
 
 @Controller
 @RequestMapping("/Book")
@@ -99,5 +100,31 @@ public class BookController {
 			return booklist;
 		}
 	}
-
+	
+	@RequestMapping(value="getAllBookPager.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Book> getAllBookPager(@RequestBody int pageNum){
+		return bs.getAllBookPager(pageNum);
+	}
+	
+	@RequestMapping(value="getBookByName.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Book> getBookByName(@RequestBody int pageNum,@RequestBody String name){
+		return bs.getBookByName(pageNum, name);
+	}
+	
+	@RequestMapping(value="getBookByTypeId.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Book> getBookByTypeId(@RequestBody int pageNum,@RequestBody int typeId){
+		return bs.getBookByTypeId(pageNum, typeId);
+	}
+	
+	@RequestMapping(value="getBookBySearch.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Book> getBookBySearch(@RequestBody int pageNum,@RequestBody(required=false) String content){
+		if(content==null) {
+			content="";
+		}
+		return bs.getBookBySearch(pageNum, content);
+	}
 }

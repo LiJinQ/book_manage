@@ -84,7 +84,7 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 	@Override
 	public Pager<ReaderBook> getReaderBookByReaderId(int pageNum, int readerId) {
 		// TODO Auto-generated method stub
-		Pager<ReaderBook> pager = new Pager<ReaderBook>(pageNum, 10, rbd.getTotalRecord());
+		Pager<ReaderBook> pager = new Pager<ReaderBook>(pageNum, 10, rbd.getTotalRecord(readerId, 0));
 		List<ReaderBook> lists = rbd.getReaderBookPagerByReaderIdOrBookId(pager, readerId, 0);
 		pager.setList(lists);
 		return pager;
@@ -93,7 +93,7 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 	@Override
 	public Pager<ReaderBook> getReaderBookByBookId(int pageNum, int bookId) {
 		// TODO Auto-generated method stub
-		Pager<ReaderBook> pager = new Pager<ReaderBook>(pageNum, 10, rbd.getTotalRecord());
+		Pager<ReaderBook> pager = new Pager<ReaderBook>(pageNum, 10, rbd.getTotalRecord(0, bookId));
 		List<ReaderBook> lists = rbd.getReaderBookPagerByReaderIdOrBookId(pager, 0, bookId);
 		pager.setList(lists);
 		return pager;
@@ -102,7 +102,7 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 	@Override
 	public Pager<ReaderBook> getAllReaderBook(int pageNum) {
 		// TODO Auto-generated method stub
-		Pager<ReaderBook> pager = new Pager<ReaderBook>(pageNum, 10, rbd.getTotalRecord());
+		Pager<ReaderBook> pager = new Pager<ReaderBook>(pageNum, 10, rbd.getTotalRecord(0,0));
 		List<ReaderBook> lists = rbd.getReaderBookPagerByReaderIdOrBookId(pager, 0, 0);
 		pager.setList(lists);
 		return pager;

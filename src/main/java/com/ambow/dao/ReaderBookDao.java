@@ -23,5 +23,5 @@ public interface ReaderBookDao {
 	public ReaderBook getReaderBookById(int id);
 	
 	public Date getNow(); 
-	public int getTotalRecord();
+	public int getTotalRecord(@Param("readerId")int readerId,@Param("bookId")int bookId);
 }

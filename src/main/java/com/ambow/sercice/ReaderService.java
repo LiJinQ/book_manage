@@ -3,6 +3,7 @@ package com.ambow.sercice;
 import java.util.List;
 
 import com.ambow.pojo.Reader;
+import com.ambow.vo.Pager;
 
 public interface ReaderService {
 	public int newReader(Reader reader);
@@ -12,4 +13,8 @@ public interface ReaderService {
 	public List<Reader> getAllReader();
 	public List<Reader> getReaderByName(String name);
 	public List<Reader> getReaderSearch(String content);
+	
+	public Pager<Reader> getAllReader(int pageNum);
+	public Pager<Reader> getReaderByName(int pageNum,String name);
+	public Pager<Reader> getReaderSearch(int pageNum,String content);
 }

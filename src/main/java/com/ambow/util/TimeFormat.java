@@ -35,4 +35,13 @@ public class TimeFormat {
 		long ei = t1-t2;
 		return (int)(ei/(1000*60*60*24));
 	}
+	
+	public static String getRandomNumber() {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		String number = formatter.format(new Date());
+		int i = (int)(Math.random()*900 + 100);
+		String myStr = Integer.toString(i);
+		number = number + myStr;
+		return number;
+	}
 }
