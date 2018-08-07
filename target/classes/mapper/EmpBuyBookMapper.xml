@@ -11,15 +11,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<resultMap type="EmpBuyBook" id="empBuyBook">
-		<id column="id" jdbcType="int" property="id"/>
-		<result column="emp_id" jdbcType="int" property="empId"/>
-		<result column="book_id" jdbcType="int" property="bookId"/>
-		<result column="buy_date" jdbcType="Date" property="buyDate"/>
-		<collection column="{ebbId=emp_id}" property="lists" ofType="Status" select="getStatus">
+		<id column="id" jdbcType="INTEGER" property="id"/>
+		<result column="emp_id" jdbcType="INTEGER" property="empId"/>
+		<result column="book_id" jdbcType="INTEGER" property="bookId"/>
+		<result column="buy_date" jdbcType="DATE" property="buyDate"/>
+		<collection column="{ebbId=id}" property="lists" ofType="Status" select="getStatus">
 		</collection>
 	</resultMap>
 	
-	<select id="getStatus">
+	<select id="getStatus" resultType="Status">
 		select * from status where ebb_id=#{ebbId}
 	</select>
 	

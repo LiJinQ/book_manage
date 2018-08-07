@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.ambow.dao.EmpBuyBookDao;
 import com.ambow.dao.EmpDao;
 import com.ambow.pojo.Emp;
 import com.ambow.vo.Pager;
@@ -18,6 +19,10 @@ public class EmpTest {
 
 	@Autowired
 	private EmpDao ed;
+	
+	
+	@Autowired
+	private EmpBuyBookDao ebbd;
 
 	@Test
 	public void test() {
@@ -29,7 +34,7 @@ public class EmpTest {
 	
 	@Test
 	public void testPager() {
-		System.out.println(ed.getFindTotalRecord("user"));
+		System.out.println(ebbd.getEmpBuyBookById(1));
 	}
 
 }
