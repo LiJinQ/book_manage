@@ -63,9 +63,7 @@ public class Pager<T> {
                 this.start = end - 5;
             }
         }
-        if(pageNum>totalPage) {
-        	this.pageNum = totalPage;
-        }
+       
     }
     
     
