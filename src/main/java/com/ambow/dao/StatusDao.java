@@ -10,11 +10,6 @@ public interface StatusDao {
 
 	public void updateStatus(Status status);
 	
-	/**
-	 * Í¨¹ıemp_levelÅÅĞò
-	 * @param ebbId
-	 * @return
-	 */
 	public List<Status> getStatusByEbbId(int ebbId);
 	
 	

@@ -61,7 +61,7 @@ public class ReaderServiceImpl implements ReaderService {
 	@Override
 	public Pager<Reader> getAllReader(int pageNum) {
 		// TODO Auto-generated method stub
-		Pager<Reader> pager = new Pager<>(pageNum, 10, rd.getTotalRecord(null));
+		Pager<Reader> pager = new Pager<Reader>(pageNum, 10, rd.getTotalRecord(null));
 		List<Reader> list = rd.getReaderPagerByName(pager, null);
 		pager.setList(list);
 		return pager;
@@ -70,7 +70,7 @@ public class ReaderServiceImpl implements ReaderService {
 	@Override
 	public Pager<Reader> getReaderByName(int pageNum, String name) {
 		// TODO Auto-generated method stub
-		Pager<Reader> pager = new Pager<>(pageNum, 10, rd.getTotalRecord(name));
+		Pager<Reader> pager = new Pager<Reader>(pageNum, 10, rd.getTotalRecord(name));
 		List<Reader> list = rd.getReaderPagerByName(pager, name);
 		pager.setList(list);
 		return pager;
@@ -79,7 +79,8 @@ public class ReaderServiceImpl implements ReaderService {
 	@Override
 	public Pager<Reader> getReaderSearch(int pageNum, String content) {
 		// TODO Auto-generated method stub
-		Pager<Reader> pager = new Pager<>(pageNum, 10, rd.getTotalSearchRecord(content));
+		content="%"+content+"%";
+		Pager<Reader> pager = new Pager<Reader>(pageNum, 10, rd.getTotalSearchRecord(content));
 		List<Reader> list = rd.getReaderPagerSearch(pager, content);
 		pager.setList(list);
 		return pager;

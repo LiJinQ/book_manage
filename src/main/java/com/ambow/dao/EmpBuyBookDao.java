@@ -10,11 +10,6 @@ public interface EmpBuyBookDao {
 	
 	public void updateEmpBuyBook(EmpBuyBook empBuyBook);
 	
-	/**
-	 * 根据用户id查询申请信息状态
-	 * @param empId
-	 * @return
-	 */
 	public List<EmpBuyBook> getEmpBuyBookByEmpId(int empId);
 	
 	public List<EmpBuyBook> getAllEmpBuyBook();
