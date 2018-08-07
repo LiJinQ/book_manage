@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderBookService;
 import com.ambow.vo.Pager;
+import com.ambow.vo.PagerVo;
 
 @Controller
 @RequestMapping("/readerBook")
@@ -55,20 +56,20 @@ public class ReaderBookController {
 	
 	@RequestMapping(value="getReaderBookByReaderId.do",method = RequestMethod.POST)
 	@ResponseBody
-	public Pager<ReaderBook> getReaderBookByReaderId(@RequestBody int pageNum,@RequestBody int readerId){
-		return rbs.getReaderBookByReaderId(pageNum, readerId);
+	public Pager<ReaderBook> getReaderBookByReaderId(@RequestBody PagerVo pv){
+		return rbs.getReaderBookByReaderId(pv.getPageNum(), pv.getReaderId());
 	}
 	
 	@RequestMapping(value="getReaderBookByBookId.do",method = RequestMethod.POST)
 	@ResponseBody
-	public Pager<ReaderBook> getReaderBookByBookId(@RequestBody int pageNum,@RequestBody int bookId){
-		return rbs.getReaderBookByBookId(pageNum, bookId);
+	public Pager<ReaderBook> getReaderBookByBookId(@RequestBody PagerVo pv){
+		return rbs.getReaderBookByBookId(pv.getPageNum(), pv.getBookId());
 	}
 	
 	@RequestMapping(value="getAllReaderBook.do",method = RequestMethod.POST)
 	@ResponseBody
-	public Pager<ReaderBook> getAllReaderBook(@RequestBody int pageNum){
-		return rbs.getAllReaderBook(pageNum);
+	public Pager<ReaderBook> getAllReaderBook(@RequestBody PagerVo pv){
+		return rbs.getAllReaderBook(pv.getPageNum());
 	}
 	
 	@RequestMapping(value="getReaderBookById.do",method = RequestMethod.POST)

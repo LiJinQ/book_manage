@@ -5,19 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ambow.pojo.Reader;
 import com.ambow.sercice.ReaderService;
-import com.ambow.service.impl.ReaderServiceImpl;
+import com.ambow.vo.Pager;
+import com.ambow.vo.PagerVo;
 
 @Controller
 @RequestMapping("/Reader")
 public class ReaderController {
 
 	@Autowired
-	ReaderService rs;
+	private ReaderService rs;
 
 	@RequestMapping("/newReader")
 	@ResponseBody
@@ -89,5 +90,28 @@ public class ReaderController {
 		} else {
 			return readerlist;
 		}
+	}
+	
+	@RequestMapping(value="/getAllReaderPager.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Reader> getAllReader(@RequestBody PagerVo pv){
+		return rs.getAllReader(pv.getPageNum());
+	}
+	
+	@RequestMapping(value="/getReaderPagerByName.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Reader> getReaderByName(@RequestBody PagerVo pv){
+		if(pv.getContent()==null) {
+			pv.setContent("");
+		}
+		return rs.getReaderByName(pv.getPageNum(), pv.getContent());
+	}
+	@RequestMapping(value="/getReaderPagerSearch.do",method=RequestMethod.POST)
+	@ResponseBody
+	public Pager<Reader> getReaderSearch(@RequestBody PagerVo pv){
+		if(pv.getContent()==null) {
+			pv.setContent("");
+		}
+		return rs.getReaderSearch(pv.getPageNum(), pv.getContent());
 	}
 }

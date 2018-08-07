@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ambow.pojo.Book;
 import com.ambow.sercice.BookService;
 import com.ambow.vo.Pager;
+import com.ambow.vo.PagerVo;
 
 @Controller
 @RequestMapping("/Book")
@@ -103,28 +104,28 @@ public class BookController {
 	
 	@RequestMapping(value="getAllBookPager.do",method=RequestMethod.POST)
 	@ResponseBody
-	public Pager<Book> getAllBookPager(@RequestBody int pageNum){
-		return bs.getAllBookPager(pageNum);
+	public Pager<Book> getAllBookPager(@RequestBody PagerVo pv){
+		return bs.getAllBookPager(pv.getPageNum());
 	}
 	
 	@RequestMapping(value="getBookByName.do",method=RequestMethod.POST)
 	@ResponseBody
-	public Pager<Book> getBookByName(@RequestBody int pageNum,@RequestBody String name){
-		return bs.getBookByName(pageNum, name);
+	public Pager<Book> getBookByName(@RequestBody PagerVo pv){
+		return bs.getBookByName(pv.getPageNum(), pv.getContent());
 	}
 	
 	@RequestMapping(value="getBookByTypeId.do",method=RequestMethod.POST)
 	@ResponseBody
-	public Pager<Book> getBookByTypeId(@RequestBody int pageNum,@RequestBody int typeId){
-		return bs.getBookByTypeId(pageNum, typeId);
+	public Pager<Book> getBookByTypeId(@RequestBody PagerVo pv){
+		return bs.getBookByTypeId(pv.getPageNum(), pv.getTypeId());
 	}
 	
 	@RequestMapping(value="getBookBySearch.do",method=RequestMethod.POST)
 	@ResponseBody
-	public Pager<Book> getBookBySearch(@RequestBody int pageNum,@RequestBody(required=false) String content){
-		if(content==null) {
-			content="";
+	public Pager<Book> getBookBySearch(@RequestBody PagerVo pv){
+		if(pv.getContent()==null) {
+			pv.setContent("");
 		}
-		return bs.getBookBySearch(pageNum, content);
+		return bs.getBookBySearch(pv.getPageNum(), pv.getContent());
 	}
 }
