@@ -43,6 +43,7 @@ public interface EmpDao {
 	public List<Emp> getEmp(@Param("name")String name,@Param("roleId")int roleId,@Param("entryTime")Date entryTime);
 
 	public int getTotalRecord();
+	public int getFindTotalRecord(String sth);
 	public List<Emp> getEmpPager(Pager<Emp> pager);
 	
 	public List<Emp> getEmpFind(@Param("pager")Pager<Emp> pager,@Param("sth")String sth);

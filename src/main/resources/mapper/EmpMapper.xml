@@ -42,6 +42,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalRecord" resultType="int">
 		select count(*) from emp
 	</select>
+	<select id="getFindTotalRecord" resultType="int">
+		select count(*) from emp where name like #{sth} or username like #{sth} or number like #{sth} 
+	</select>
 	<select id="getEmpPager" parameterType="com.ambow.vo.Pager" resultType="Emp">
 		select * from emp limit #{startIndex},#{pageSize}
 	</select>
