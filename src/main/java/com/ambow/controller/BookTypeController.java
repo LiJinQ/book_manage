@@ -18,7 +18,37 @@ import com.ambow.vo.PagerVo;
 public class BookTypeController {
 	@Autowired
 	private BookTypeService bts;
-
+	
+	
+	@RequestMapping("/newBookType.do")
+	@ResponseBody
+	public boolean newBookType(@RequestBody BookType bookType) {
+		if(bts.newBookType(bookType)!=1) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	@RequestMapping("/deleteBookTypeById.do")
+	@ResponseBody
+	public boolean deleteBookTypeById(@RequestBody Integer id) {
+		if(bts.deleteBookTypeById(id)!=1) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	@RequestMapping("/updateBookType.do")
+	@ResponseBody
+	public boolean updateBookType(@RequestBody BookType bookType) {
+		if(bts.updateBookType(bookType)!=1) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
 	@RequestMapping("/getAllBookType.do")
 	@ResponseBody
 	public List<BookType> getAllBookType() {
