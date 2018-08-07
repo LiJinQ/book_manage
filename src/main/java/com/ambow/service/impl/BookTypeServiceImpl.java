@@ -8,41 +8,52 @@ import org.springframework.stereotype.Service;
 import com.ambow.dao.BookTypeDao;
 import com.ambow.pojo.BookType;
 import com.ambow.sercice.BookTypeService;
+import com.ambow.vo.Pager;
 
 @Service
-public class BookTypeServiceImpl implements BookTypeService{
+public class BookTypeServiceImpl implements BookTypeService {
 
 	@Autowired
 	private BookTypeDao btd;
-	
+
 	@Override
 	public int newBookType(BookType bookType) {
-		// TODO Auto-generated method stub
 		return btd.newBookType(bookType);
 	}
 
 	@Override
 	public int deleteBookTypeById(int id) {
-		// TODO Auto-generated method stub
 		return btd.deleteBookTypeById(id);
 	}
 
 	@Override
 	public int updateBookType(BookType bookType) {
-		// TODO Auto-generated method stub
 		return btd.updateBookType(bookType);
 	}
 
 	@Override
 	public List<BookType> getAllBookType() {
-		// TODO Auto-generated method stub
 		return btd.getAllBookType();
 	}
 
 	@Override
 	public BookType getBookTypeByName(String name) {
-		// TODO Auto-generated method stub
 		return btd.getBookTypeByIdOrName(0, name);
 	}
+	@Override
+	public Pager<BookType> getBookTypePager(int pageNum) {
+		int totalRecord = btd.getTotalRecord();
+		Pager<BookType> pager = new Pager<BookType>(pageNum, 10, totalRecord);
+		pager.setList(btd.getBookTypePager(pager));
+		return pager;
+	}
 
+	@Override
+	public Pager<BookType> getBookTypeFindPager(int pageNum, String sth) {
+		int totalRecord = btd.getFindTotalRecord(sth);
+		sth = "%" + sth + "%";
+		Pager<BookType> pager = new Pager<BookType>(pageNum, 10, totalRecord);
+		pager.setList(btd.getBookTypeFind(pager, sth));
+		return pager;
+	}
 }
