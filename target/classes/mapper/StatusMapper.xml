@@ -28,4 +28,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getStatusById" resultType="Status">
 		select * from status where id = #{id}
 	</select>
+	
+	<select id="getTotalRecord" resultType="int">
+		select count(*) from status where status=#{status}
+		<if test="empLevel!=0">and emp_level=#{empLevel}</if>
+		<if test="empLevel==1">or emp_level=4</if>
+	</select>
+	
+	<select id="getStatusPager" resultType="Status">
+		select * from status where status=#{status}
+		<if test="empLevel!=0">and emp_level=#{empLevel}</if>
+		order by id desc
+		limit #{pager.startIndex},#{pager.pageSize}
+	</select>
 </mapper>

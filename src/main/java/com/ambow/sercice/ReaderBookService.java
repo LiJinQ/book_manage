@@ -2,6 +2,7 @@ package com.ambow.sercice;
 
 import java.util.List;
 
+import com.ambow.pojo.Reader;
 import com.ambow.pojo.ReaderBook;
 import com.ambow.vo.Pager;
 
@@ -28,5 +29,5 @@ public interface ReaderBookService {
 	public Pager<ReaderBook> getAllReaderBook(int pageNum);
 	public ReaderBook getReaderBookById(int id);
 	
-	public List<ReaderBook> getReaderBookByBookId2(int bookId);
+	public List<Reader> getReaderBookByBookId2(int bookId);
 }

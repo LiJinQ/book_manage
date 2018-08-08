@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ambow.pojo.Reader;
 import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderBookService;
 import com.ambow.vo.Pager;
@@ -82,7 +83,7 @@ public class ReaderBookController {
 	
 	@RequestMapping(value="getReaderBookByBookId2.do",method = RequestMethod.POST)
 	@ResponseBody
-	public List<ReaderBook> getReaderBookByBookId2(@RequestBody int bookId) {
+	public List<Reader> getReaderBookByBookId2(@RequestBody int bookId) {
 		return rbs.getReaderBookByBookId2(bookId);
 	}
 }

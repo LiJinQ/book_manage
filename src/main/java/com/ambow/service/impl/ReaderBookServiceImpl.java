@@ -1,5 +1,6 @@
 package com.ambow.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.ambow.dao.BookDao;
 import com.ambow.dao.ReaderBookDao;
+import com.ambow.dao.ReaderDao;
 import com.ambow.pojo.Book;
+import com.ambow.pojo.Reader;
 import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderBookService;
 import com.ambow.util.TimeFormat;
@@ -21,6 +24,8 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 	private ReaderBookDao rbd;
 	@Autowired
 	private BookDao bd;
+	@Autowired
+	private ReaderDao rd;
 	
 	private boolean isPrice(int readerId) {
 		List<ReaderBook> readerBooks = rbd.getReaderBookByReaderId(readerId);
@@ -114,9 +119,15 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 	}
 
 	@Override
-	public List<ReaderBook> getReaderBookByBookId2(int bookId) {
+	public List<Reader> getReaderBookByBookId2(int bookId) {
 		// TODO Auto-generated method stub
-		return rbd.getReaderBookByBookId(bookId);
+		List<ReaderBook> rbList = rbd.getReaderBookByBookId(bookId);
+		List<Reader> list = new ArrayList<Reader>();
+		for(ReaderBook rb:rbList) {
+			Reader r = rd.getReaderById(rb.getReaderId());
+			list.add(r);
+		}
+		return list;
 	}
 
 	

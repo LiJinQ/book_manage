@@ -27,6 +27,16 @@ public class PagerVo {
 	 */
 	private int bookId;
 	private int readerBookId;
+	private int rootId;
+	
+	public int getRootId() {
+		return rootId;
+	}
+
+	public void setRootId(int rootId) {
+		this.rootId = rootId;
+	}
+
 	public int getReaderBookId() {
 		return readerBookId;
 	}
