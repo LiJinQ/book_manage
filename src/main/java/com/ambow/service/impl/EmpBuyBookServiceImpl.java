@@ -47,7 +47,7 @@ public class EmpBuyBookServiceImpl implements EmpBuyBookService{
 		ss.setUpdateDate(new Date());
 		sd.updateStatus(ss);
 		if(status.getStatus()==1) {
-			Status s1 = new Status(0, status.getEbbId(), status.getEmpId(), 0, ss.getEmpLevel()+1, new Date());
+			Status s1 = new Status(0, ss.getEbbId(), ss.getEmpId(), 0, ss.getEmpLevel()+1, new Date());
 			return sd.newStatus(s1);
 		}
 		return 1;

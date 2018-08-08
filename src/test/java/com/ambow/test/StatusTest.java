@@ -19,11 +19,13 @@ public class StatusTest {
 	
 	@Test
 	public void testupdateStatus() {
-		statusdao.updateStatus(new Status(2,2,2,2,2,new Date()));
+		statusdao.newStatus(new Status(2,2,2,2,2,new Date()));
 	}
 	
 	@Test
 	public void testgetStatusByEbbId() {
 		System.out.println(statusdao.getStatusByEbbId(2));
 	}
+	
+	
 }
