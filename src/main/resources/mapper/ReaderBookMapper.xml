@@ -53,6 +53,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="bookId!=0">and book_id=#{bookId}</if>
 	</select>
 	<select id="getReaderBookByBookId" resultType="ReaderBook">
-		select * from reader_book where book_id=#{bookId} and back_date=null
+		select * from reader_book where book_id=#{bookId} and back_date is null
 	</select>
 </mapper>
