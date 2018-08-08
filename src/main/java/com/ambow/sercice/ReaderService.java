@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ambow.pojo.Reader;
+import com.ambow.vo.BookBeBorrow;
 import com.ambow.vo.Pager;
 
 public interface ReaderService {
@@ -21,5 +22,5 @@ public interface ReaderService {
 	public Pager<Reader> getReaderSearch(int pageNum,String content);
 	
 	public Map<String,String> getSexProportion();
-
+	
 }

@@ -128,5 +128,4 @@ public class ReaderController {
 	public Map<String,String> getSexProportion() {
 		return rs.getSexProportion();
 	}
-	
 }
