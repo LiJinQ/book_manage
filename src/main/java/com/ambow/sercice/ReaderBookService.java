@@ -5,6 +5,7 @@ import java.util.List;
 import com.ambow.pojo.Reader;
 import com.ambow.pojo.ReaderBook;
 import com.ambow.vo.Pager;
+import com.ambow.vo.ReaderBookVo;
 
 public interface ReaderBookService {
 	/**
@@ -29,5 +30,5 @@ public interface ReaderBookService {
 	public Pager<ReaderBook> getAllReaderBook(int pageNum);
 	public ReaderBook getReaderBookById(int id);
 	
-	public List<Reader> getReaderBookByBookId2(int bookId);
+	public List<ReaderBookVo> getReaderBookByBookId2(int bookId);
 }

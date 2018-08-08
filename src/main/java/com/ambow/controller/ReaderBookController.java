@@ -14,6 +14,7 @@ import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderBookService;
 import com.ambow.vo.Pager;
 import com.ambow.vo.PagerVo;
+import com.ambow.vo.ReaderBookVo;
 
 @Controller
 @RequestMapping("/readerBook")
@@ -83,7 +84,7 @@ public class ReaderBookController {
 	
 	@RequestMapping(value="getReaderBookByBookId2.do",method = RequestMethod.POST)
 	@ResponseBody
-	public List<Reader> getReaderBookByBookId2(@RequestBody int bookId) {
+	public List<ReaderBookVo> getReaderBookByBookId2(@RequestBody int bookId) {
 		return rbs.getReaderBookByBookId2(bookId);
 	}
 }

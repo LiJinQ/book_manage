@@ -16,6 +16,7 @@ import com.ambow.pojo.ReaderBook;
 import com.ambow.sercice.ReaderBookService;
 import com.ambow.util.TimeFormat;
 import com.ambow.vo.Pager;
+import com.ambow.vo.ReaderBookVo;
 
 @Service
 public class ReaderBookServiceImpl implements ReaderBookService{
@@ -119,13 +120,14 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 	}
 
 	@Override
-	public List<Reader> getReaderBookByBookId2(int bookId) {
+	public List<ReaderBookVo> getReaderBookByBookId2(int bookId) {
 		// TODO Auto-generated method stub
 		List<ReaderBook> rbList = rbd.getReaderBookByBookId(bookId);
-		List<Reader> list = new ArrayList<Reader>();
+		List<ReaderBookVo> list = new ArrayList<ReaderBookVo>();
 		for(ReaderBook rb:rbList) {
 			Reader r = rd.getReaderById(rb.getReaderId());
-			list.add(r);
+			ReaderBookVo rbv = new ReaderBookVo(rb, r);
+			list.add(rbv);
 		}
 		return list;
 	}
