@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getReaderCanBorrow" resultType="Reader">
 		select * from reader where id not in(
 			select reader_id from reader_book where 
-			back_date not null
+			back_date is null
 		)
 	</select>
 </mapper>

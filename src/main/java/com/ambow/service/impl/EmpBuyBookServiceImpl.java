@@ -33,7 +33,8 @@ public class EmpBuyBookServiceImpl implements EmpBuyBookService{
 	@Override
 	public int examine(Status status) {
 		// TODO Auto-generated method stub
-		
+		Status ss = sd.getStatusById(status.getId());
+		ss.setStatus(status.getStatus());
 		return 0;
 	}
 
