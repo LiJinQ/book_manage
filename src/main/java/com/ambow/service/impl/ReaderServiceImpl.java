@@ -1,6 +1,7 @@
 package com.ambow.service.impl;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,4 +105,21 @@ public class ReaderServiceImpl implements ReaderService {
 		return rd.getReaderCanBorrow();
 	}
 
+	@Override
+	public Map<String,String> getSexProportion() {
+		// TODO Auto-generated method stub
+		Map<String, String> map=new HashMap<String, String>();
+		int GirlNumber=rd.getGirlNumber();
+		int BoyNumber=rd.getBoyNumber();
+		int StudentNumber=rd.getStudentNumber();
+		int Society=rd.getSocietyNumber();
+		int Retirement=rd.getRetirementNumber();
+		map.put("BoyNumber", String.valueOf(BoyNumber));
+		map.put("GirlNumber", String.valueOf(GirlNumber));
+		map.put("Student", String.valueOf(StudentNumber));
+		map.put("Society", String.valueOf(Society));
+		map.put("Retirement", String.valueOf(Retirement));
+		
+		return map;
+	}
 }

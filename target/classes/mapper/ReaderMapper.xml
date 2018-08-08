@@ -80,4 +80,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			back_date is null
 		)
 	</select>
+	
+	<select id="getGirlNumber" resultType="Integer">
+		select count(*) from reader where sex='女'
+	</select>
+	
+	<select id="getBoyNumber" resultType="Integer">
+		select count(*) from reader where sex='男'
+	</select>
+	
+	<select id="getStudentNumber" resultType="Integer">
+		select count(*) from reader where identity='学生'
+	</select>
+	
+	<select id="getSocietyNumber" resultType="Integer">
+		select count(*) from reader where identity='社会'
+	</select>
+	
+	<select id="getRetirementNumber" resultType="Integer">
+		select count(*) from reader where identity='退休'
+	</select>
 </mapper>

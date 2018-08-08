@@ -33,4 +33,14 @@ public interface ReaderDao {
 	public List<Reader> getReaderPagerSearch(@Param("pager") Pager<Reader> pager,@Param("content") String content);
 	
 	public List<Reader> getAllReaderPager(Pager<Reader> pager);
+	
+	public int getGirlNumber();
+	
+	public int getBoyNumber();
+	
+	public int getStudentNumber();
+	
+	public int getSocietyNumber();
+	
+	public int getRetirementNumber();
 }

@@ -1,6 +1,7 @@
 package com.ambow.sercice;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ambow.pojo.Reader;
 import com.ambow.vo.Pager;
@@ -18,4 +19,7 @@ public interface ReaderService {
 	public Pager<Reader> getAllReader(int pageNum);
 	public Pager<Reader> getReaderByName(int pageNum,String name);
 	public Pager<Reader> getReaderSearch(int pageNum,String content);
+	
+	public Map<String,String> getSexProportion();
+
 }
