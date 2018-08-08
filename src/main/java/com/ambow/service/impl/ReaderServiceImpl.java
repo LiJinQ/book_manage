@@ -98,4 +98,10 @@ public class ReaderServiceImpl implements ReaderService {
 		return pager;
 	}
 
+	@Override
+	public List<Reader> getReaderConBorrow() {
+		// TODO Auto-generated method stub
+		return rd.getReaderCanBorrow();
+	}
+
 }

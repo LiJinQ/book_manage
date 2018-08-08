@@ -114,4 +114,10 @@ public class ReaderController {
 		}
 		return rs.getReaderSearch(pv.getPageNum(), pv.getContent());
 	}
+	
+	@RequestMapping("/getReaderCanBorrow.do")
+	@ResponseBody
+	public List<Reader> getReaderCanBorrow(){
+		return rs.getReaderConBorrow();
+	}
 }

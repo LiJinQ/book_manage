@@ -16,11 +16,8 @@ public interface ReaderDao {
 	
 	public Reader getReaderById(int id);
 	
-	/**
-	 * ģ����ѯ
-	 * @param name
-	 * @return
-	 */
+	public List<Reader> getReaderCanBorrow();
+	
 	public List<Reader> getReaderByName(String name);
 	
 	public List<Reader> getAllReader();

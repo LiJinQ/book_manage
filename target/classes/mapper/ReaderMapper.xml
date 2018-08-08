@@ -73,4 +73,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		limit #{pager.startIndex},#{pager.pageSize}
 		
 	</select>
+	
+	<select id="getReaderCanBorrow" resultType="Reader">
+		select * from reader where id not in(
+			select reader_id from reader_book where 
+			back_date not null
+		)
+	</select>
 </mapper>

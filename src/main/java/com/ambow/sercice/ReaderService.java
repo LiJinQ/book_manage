@@ -13,6 +13,7 @@ public interface ReaderService {
 	public List<Reader> getAllReader();
 	public List<Reader> getReaderByName(String name);
 	public List<Reader> getReaderSearch(String content);
+	public List<Reader> getReaderConBorrow();
 	
 	public Pager<Reader> getAllReader(int pageNum);
 	public Pager<Reader> getReaderByName(int pageNum,String name);
