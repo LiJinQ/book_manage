@@ -106,7 +106,7 @@ public class EmpBuyBookServiceImpl implements EmpBuyBookService{
 		// TODO Auto-generated method stub
 		int totalRecord = ebbd.getTotalRecord();
 		Pager<EmpBuyBook> pager = new Pager<EmpBuyBook>(pv.getPageNum(), 10, totalRecord);
-		List<EmpBuyBook> list = ebbd.getEmpBuyBookPager(pager);
+		List<EmpBuyBook> list = ebbd.getEmpBuyBookPager(pager,pv.getBookId());
 		pager.setList(list);
 		return pager;
 	}

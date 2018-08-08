@@ -28,7 +28,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getEmpBuyBookPager" resultMap="empBuyBook">
-		select * from emp_buy_book order by id desc limit #{startIndex},#{pageSize}
+		select * from emp_buy_book where 1=1
+		<if test="bookId!=0">and book_id = #{bookId}</if>
+		 order by id desc limit #{startIndex},#{pageSize}
 	</select>
 	
 	<select id="getTotalRecord" resultType="int">

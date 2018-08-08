@@ -13,5 +13,5 @@ public interface EmpBuyBookDao {
 	
 	public int getTotalRecord();
 	
-	public List<EmpBuyBook> getEmpBuyBookPager(Pager<EmpBuyBook> pager);
+	public List<EmpBuyBook> getEmpBuyBookPager(Pager<EmpBuyBook> pager,int bookId);
 }

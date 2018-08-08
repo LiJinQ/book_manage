@@ -36,7 +36,7 @@ public class EmpTest {
 	@Test
 	public void testPager() {
 		Pager<EmpBuyBook> pager = new Pager<EmpBuyBook>(1, 10, ebbd.getTotalRecord());
-		System.out.println(ebbd.getEmpBuyBookPager(pager));
+		
 	}
 	
 	@Test
