@@ -12,5 +12,5 @@ public interface StatusDao {
 	
 	public List<Status> getStatusByEbbId(int ebbId);
 	
-	
+	public Status getStatusById(int id);
 }

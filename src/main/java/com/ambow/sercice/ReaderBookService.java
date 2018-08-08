@@ -28,5 +28,5 @@ public interface ReaderBookService {
 	public Pager<ReaderBook> getAllReaderBook(int pageNum);
 	public ReaderBook getReaderBookById(int id);
 	
-	public List<ReaderBook> getReaderBookByBookId(int bookId);
+	public List<ReaderBook> getReaderBookByBookId2(int bookId);
 }

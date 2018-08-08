@@ -30,4 +30,11 @@ public class EmpBuyBookServiceImpl implements EmpBuyBookService{
 		return sd.newStatus(status);
 	}
 
+	@Override
+	public int examine(Status status) {
+		// TODO Auto-generated method stub
+		
+		return 0;
+	}
+
 }

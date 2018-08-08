@@ -80,9 +80,9 @@ public class ReaderBookController {
 		return rbs.getReaderBookById(id);
 	}
 	
-	@RequestMapping(value="getReaderBookByBookId.do",method = RequestMethod.POST)
+	@RequestMapping(value="getReaderBookByBookId2.do",method = RequestMethod.POST)
 	@ResponseBody
-	public List<ReaderBook> getReaderBookByBookId(@RequestBody int bookId) {
-		return rbs.getReaderBookByBookId(bookId);
+	public List<ReaderBook> getReaderBookByBookId2(@RequestBody int bookId) {
+		return rbs.getReaderBookByBookId2(bookId);
 	}
 }
