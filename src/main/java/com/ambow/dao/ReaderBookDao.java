@@ -16,6 +16,8 @@ public interface ReaderBookDao {
 	
 	public List<ReaderBook> getReaderBookByReaderId(int readerId);
 	
+	public List<ReaderBook> getReaderBookByBookId(int bookId);
+	
 	public List<ReaderBook> getReaderBookPagerByReaderIdOrBookId(@Param("pager")Pager<ReaderBook> pager,@Param("readerId")int readerId,@Param("bookId")int bookId);
 	
 	public List<ReaderBook> getAllReaderBook();

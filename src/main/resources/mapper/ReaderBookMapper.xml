@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ambow.dao.ReaderBookDao">
-	<insert id="newReaderBook" keyProperty="id">
+	<insert id="newReaderBook" useGeneratedKeys="true" keyProperty="id">
 		insert into reader_book (id,reader_id,book_id,start_date,back_date,price)
 		values
 		(#{id},#{readerId},#{bookId},#{startDate},#{backDate},#{price})
@@ -51,5 +51,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from reader_book where 1=1
 		<if test="readerId!=0">and reader_id=#{readerId}</if>
 		<if test="bookId!=0">and book_id=#{bookId}</if>
+	</select>
+	<select id="getReaderBookByBookId" resultType="ReaderBook">
+		select * from reader_book where book_id=#{bookId} and back_date=null
 	</select>
 </mapper>

@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ambow.dao.EmpBuyBookDao;
 import com.ambow.dao.EmpDao;
 import com.ambow.pojo.Emp;
+import com.ambow.pojo.EmpBuyBook;
 import com.ambow.vo.Pager;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,7 +35,15 @@ public class EmpTest {
 	
 	@Test
 	public void testPager() {
-		System.out.println(ebbd.getEmpBuyBookById(1));
+		Pager<EmpBuyBook> pager = new Pager<EmpBuyBook>(1, 10, ebbd.getTotalRecord());
+		System.out.println(ebbd.getEmpBuyBookPager(pager));
+	}
+	
+	@Test
+	public void test1() {
+		EmpBuyBook ebb = new EmpBuyBook(0, 1, 1, new Date(), null);
+		System.out.println(ebbd.newEmpBuyBook(ebb));
+		System.out.println(ebb.getId());
 	}
 
 }

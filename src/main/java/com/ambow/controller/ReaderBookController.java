@@ -1,5 +1,7 @@
 package com.ambow.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -76,5 +78,11 @@ public class ReaderBookController {
 	@ResponseBody
 	public ReaderBook getReaderBookById(@RequestBody int id) {
 		return rbs.getReaderBookById(id);
+	}
+	
+	@RequestMapping(value="getReaderBookByBookId.do",method = RequestMethod.POST)
+	@ResponseBody
+	public List<ReaderBook> getReaderBookByBookId(@RequestBody int bookId) {
+		return rbs.getReaderBookByBookId(bookId);
 	}
 }

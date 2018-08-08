@@ -113,5 +113,11 @@ public class ReaderBookServiceImpl implements ReaderBookService{
 		return rbd.getReaderBookById(id);
 	}
 
+	@Override
+	public List<ReaderBook> getReaderBookByBookId(int bookId) {
+		// TODO Auto-generated method stub
+		return rbd.getReaderBookByBookId(bookId);
+	}
+
 	
 }

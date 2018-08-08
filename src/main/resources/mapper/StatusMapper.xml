@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ambow.dao.StatusDao">
-	<insert id="newStatus" keyProperty="id">
+	<insert id="newStatus" useGeneratedKeys="true" keyProperty="id">
 		insert into status
 		(ebb_id,emp_id,status,emp_level,update_date)
 		values
