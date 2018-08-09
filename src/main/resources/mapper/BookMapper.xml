@@ -71,6 +71,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getBookBeBorrow" resultType="com.ambow.vo.BookBeBorrow">
-		select rb.book_id as id,boo.name,count(*) as number from reader_book as rb,book as boo where rb.book_id=boo.id group by rb.book_id
+		select rb.book_id as id,boo.name,count(*) as number from reader_book as rb,book as boo where rb.book_id=boo.id group by rb.book_id order by number desc limit 0,5
 	</select>
 </mapper>

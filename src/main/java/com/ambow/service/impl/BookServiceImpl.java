@@ -1,5 +1,6 @@
 package com.ambow.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import com.ambow.dao.BookDao;
 import com.ambow.pojo.Book;
 import com.ambow.sercice.BookService;
 import com.ambow.util.TimeFormat;
+import com.ambow.vo.BookBeBorrow;
 import com.ambow.vo.Pager;
 
 @Service(value="BookServiceImpl")
@@ -102,4 +104,12 @@ public class BookServiceImpl implements BookService{
 		pager.setList(list);
 		return pager;
 	}
+	
+	@Override
+	 public List<BookBeBorrow> getBookBeBorrow() {
+	  // TODO Auto-generated method stub
+	  List<BookBeBorrow> list=new ArrayList<BookBeBorrow>();
+	  list=bd.getBookBeBorrow();  
+	  return list;
+	 }
 }
