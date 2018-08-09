@@ -2,6 +2,7 @@ package com.ambow.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,7 +13,13 @@ public class EmpinfoInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return true;
+		HttpSession session=request.getSession();
+		if(session.getAttribute("emp")==null) {
+			response.sendRedirect("../index.html");
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 	@Override
@@ -25,7 +32,7 @@ public class EmpinfoInterceptor implements HandlerInterceptor{
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method s
 		
 	}
 
