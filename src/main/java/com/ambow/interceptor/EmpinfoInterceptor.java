@@ -16,7 +16,7 @@ public class EmpinfoInterceptor implements HandlerInterceptor{
 		HttpSession session=request.getSession();
 		if(session.getAttribute("emp")==null) {
 			response.sendRedirect("../index.html");
-			return false;
+			return false; 
 		}else {
 			return true;
 		}

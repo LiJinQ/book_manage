@@ -71,4 +71,8 @@ public class EmpController {
 		}
 	}
 	
+	@RequestMapping("/loginout.do")
+	public void LoginOut(HttpSession session) {
+		session.removeAttribute("emp");
+	}
 }
