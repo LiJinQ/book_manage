@@ -1700,7 +1700,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: block; width: 50%; float: left;\">\n  <canvas baseChart\n          [data]=\"pieChartData\"\n          [labels]=\"pieChartLabels\"\n          [chartType]=\"pieChartType\"\n          [colors]=\"pieColors\"></canvas>\n</div>\n<div style=\"display: block; width: 50%; float: left;\">\n  <canvas baseChart\n          [data]=\"pieChartData1\"\n          [labels]=\"pieChartLabels1\"\n          [chartType]=\"pieChartType\"\n          [colors]=\"pieColors\"></canvas>\n</div>\n<div style=\"display: block; width: 100%; clear:both;\">\n</div>\n"
+module.exports = "<div style=\"display: block; width: 50%; float: left;\">\n  <canvas baseChart\n          [data]=\"pieChartData\"\n          [labels]=\"pieChartLabels\"\n          [chartType]=\"pieChartType\"\n          [colors]=\"pieColors\"></canvas>\n  <p style=\"text-align: center;margin-top: 15px;\">读者比例</p>\n</div>\n<div style=\"display: block; width: 50%; float: left;\">\n  <canvas baseChart\n          [data]=\"pieChartData1\"\n          [labels]=\"pieChartLabels1\"\n          [chartType]=\"pieChartType\"\n          [colors]=\"pieColors\"></canvas>\n  <p style=\"text-align: center; margin-top: 15px;\">借阅排行</p>\n</div>\n<div style=\"display: block; width: 100%; clear:both;\">\n</div>\n"
 
 /***/ }),
 
